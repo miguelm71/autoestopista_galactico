@@ -1,0 +1,13 @@
+cp ex00/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex00
+cp ex01/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex01
+cp ex02/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex02
+cp ex03/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex03
+cp ex04/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex04
+cp ex05/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex05
+cp ex06/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex06
+cp ex07/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex07
+cp ex08/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex08
+cp ex09/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex09
+cp ex10/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex10
+cp ex11/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex11
+cp ex12/main.c ~/eval_02/intra-uuid-b194ab5a-02b9-4c95-82ec-42c26c51f419-4230487-mmateo-m/ex12
