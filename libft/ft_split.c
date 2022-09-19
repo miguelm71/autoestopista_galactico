@@ -7,7 +7,7 @@ int ft_is_sep (char c, char s)
 		return (0);
 }
 
-int     ft_words(char *str, char sep)
+int     ft_words(const char *str, char sep)
 {
         int     i;
         int     words;
@@ -42,7 +42,7 @@ char    *ft_add_char(char *str, char c)
         return (str);
 }
 
-void    ft_split_words(char *str, char c, char **array, int *words)
+void    ft_split_words(const char *str, char c, char **array, int *words)
 {
         int             i;
 
@@ -66,7 +66,7 @@ void    ft_split_words(char *str, char c, char **array, int *words)
 char **ft_split(char const *s, char c)
 {
         int             words;
-        char    **array;
+        char            **array;
         int             i;
         int             substring_len;
 

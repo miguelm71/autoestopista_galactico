@@ -21,4 +21,5 @@ void *ft_memmove(void *dst, const void *src, size_t size)
 			i--;
 		}
 	}
+	return (dst);
 }

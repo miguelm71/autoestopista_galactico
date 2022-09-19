@@ -3,7 +3,7 @@
 size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t src_len;
-	int i;
+	size_t i;
 
 	i = 0;
 	src_len = 0;
