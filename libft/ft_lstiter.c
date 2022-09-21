@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:46:37 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/21 16:46:38 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/09/21 15:35:14 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/21 16:27:06 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*str;
+	t_list	*node;
 
-	str = ft_itoa(n);
-	ft_putstr_fd(str, fd);
+	if (!f)
+		return ;
+	node = lst;
+	while (node)
+	{
+		(*f)(node->content);
+		node = node->next;
+	}
 }

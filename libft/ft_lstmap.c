@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:46:37 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/21 16:46:38 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/09/21 16:39:58 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/21 16:39:59 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*str;
+	t_list	*node;
+	t_list	*new;
 
-	str = ft_itoa(n);
-	ft_putstr_fd(str, fd);
+	if (!f || !del)
+		return (NULL);
+	while (lst)
+	{
+		node = ft_lstnew(f(lst->content));
+		if (!node)
+		{
+			ft_lstdelone(node, del);
+		}
+		else
+		{
+			ft_lstadd_back(new, node);
+		}
+		lst = lst->next;
+	}	
 }

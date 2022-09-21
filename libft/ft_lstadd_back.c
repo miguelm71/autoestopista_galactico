@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:46:37 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/21 16:46:38 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/09/21 16:37:50 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/21 16:37:53 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*str;
-
-	str = ft_itoa(n);
-	ft_putstr_fd(str, fd);
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		ft_lstlast(*lst)->next = new;
+	}
 }

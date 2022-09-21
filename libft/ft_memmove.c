@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/21 16:44:33 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/21 16:44:34 by mmateo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t size)
+void	*ft_memmove(void *dst, const void *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	if (dst < src)
 	{
@@ -13,7 +25,8 @@ void *ft_memmove(void *dst, const void *src, size_t size)
 			i++;
 		}
 	}
-	else{
+	else
+	{
 		i = size - 1;
 		while (i >= 0)
 		{

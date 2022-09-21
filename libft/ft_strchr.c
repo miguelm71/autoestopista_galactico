@@ -1,9 +1,20 @@
-#include "libft.h"
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/21 16:51:17 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/21 16:51:18 by mmateo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strchr(const char *str, int c)
+#include "libft.h"
+
+char	*ft_strchr(const char *str, int c)
 {
-	while(*str)
+	while (*str)
 	{
 		if (*str == c)
 		{

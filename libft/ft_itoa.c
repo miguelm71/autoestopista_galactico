@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/21 16:36:24 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/21 16:37:19 by mmateo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-
-char ft_get_digit (int * nbr)
+static char	ft_get_digit(int *nbr)
 {
-	long int lnb;
-	int digit;
+	long int	lnb;
+	int			digit;
 
 	lnb = *nbr;
 	if (lnb < 0)
@@ -12,7 +23,7 @@ char ft_get_digit (int * nbr)
 	if (lnb > 9)
 	{
 		digit = lnb % 10;
-		lnb = lnb /10;
+		lnb = lnb / 10;
 	}
 	else
 	{
@@ -21,34 +32,33 @@ char ft_get_digit (int * nbr)
 	}
 	*nbr = (int)lnb;
 	return (digit + '0');
-	
 }
 
-char *ft_rev (char *str)
+static char	*ft_rev(char *str)
 {
-	int l;
-	int i;
-	char s;
+	int		l;
+	int		i;
+	char	s;
 
 	i = 0;
 	l = ft_strlen(str) - 1;
 	while (i < l)
 	{
-		s= str[i];
+		s = str[i];
 		str[i] = str[l];
 		str[l] = s;
 		i++;
 		l--;
 	}
-	return str;
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char *str;
-	int neg;
-	int i;
-	
+	char	*str;
+	int		neg;
+	int		i;
+
 	neg = (n < 0);
 	str = ft_calloc (sizeof(char), (11 + neg));
 	if (str == NULL)
