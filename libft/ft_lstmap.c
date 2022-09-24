@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:39:58 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/21 16:39:59 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/24 11:02:34 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*node;
-	t_list	*new;
+	t_list	*first;
 
 	if (!f || !del)
 		return (NULL);
@@ -28,8 +28,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		}
 		else
 		{
-			ft_lstadd_back(new, node);
+			ft_lstadd_back(&first, node);
 		}
 		lst = lst->next;
-	}	
+	}
+	return (first);
 }

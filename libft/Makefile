@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 17:19:31 by mmateo-m          #+#    #+#              #
-#    Updated: 2022/09/21 17:48:16 by mmateo-m         ###   ########.fr        #
+#    Updated: 2022/09/24 10:50:21 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,3 +31,19 @@ RM			=		rm -fr
 CFLAGS		=		-Wall -Wextra -Wall
 
 NAME		=		libft.a
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+				 ar -rcs $(NAME) $(OBJS)
+
+clean:		
+			$(RM) $(OBJS) $(OBJS_BONUS)
+
+fclean:		clean
+				$(RM) $(NAME)
+
+re: 		fclean $(NAME)
+
+bonus:		$(OBJS) $(OBJS_BONUS)
+				 ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
