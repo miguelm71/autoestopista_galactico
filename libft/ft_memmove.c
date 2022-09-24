@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:44:33 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:45:12 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:21:51 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t size)
 {
-	size_t	i;
+	int	i;
 
 	if (dst < src)
 	{

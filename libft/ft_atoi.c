@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 15:33:38 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:42:43 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:29:41 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_atoi(const char *str)
 	if (!str)
 		return (0);
 	i = 0;
-	while (str[i] == 't' || str[i] == 'n' || str[i] == 'v' || \
-			str[i] == 'f' || str[i] == 'r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || \
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	neg = 1;
 	if (str[i] == '-')

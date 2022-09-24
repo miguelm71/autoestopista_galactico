@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:36:24 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:43:06 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/24 15:40:48 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ char	*ft_itoa(int n)
 	str = ft_calloc (sizeof(char), (11 + neg));
 	if (str == NULL)
 		return (NULL);
-	if (n == 0)
-		str[0] = '0';
 	i = 0;
+	if (n == 0)
+		str[i++] = '0';
 	while (n != 0)
 	{
 		str[i] = ft_get_digit(&n);

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:53:31 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:45:50 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/24 15:16:34 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	i = 0;
 	src_len = 0;
-	while (*(src + src_len) != '\0')
-		src_len++;
-	while ((i < (size -1)) && *(src + i))
+	src_len = ft_strlen(src);
+	if (size != 0)
 	{
-		*(dst + i) = *(src + i);
-		i++;
+		while ((i < (size -1)) && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	*(dst + i) = '\0';
 	return (src_len);
 }

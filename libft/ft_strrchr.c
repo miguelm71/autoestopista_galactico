@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:57:06 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:45:59 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:15:47 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(char *s, int c)
 	char	*r;
 
 	r = 0;
-	while (s)
+	while (*s)
 	{
 		if (*s == c)
 			r = s;
