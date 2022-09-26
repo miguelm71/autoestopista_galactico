@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:53:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 14:01:23 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/26 22:09:16 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	src_l = ft_strlen(src);
 	if (size <= dst_l)
 		return (size + src_l);
-	while ((size - 1) > (dst_l + i))
+	while ((size - 1) > (dst_l + i) && src[i])
 	{
 		dst[dst_l + i] = src[i];
 		i++;

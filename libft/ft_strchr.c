@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:51:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:45:37 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/26 20:49:01 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strchr(const char *str, int c)
 {
 	while (*str)
 	{
-		if (*str == c)
+		if (*str == (unsigned char)c)
 		{
 			return ((char *)str);
 		}
