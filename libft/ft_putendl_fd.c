@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:46:13 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:45:21 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:33:10 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	ft_putendl_fd(char *s, int fd)
 	int	l;
 
 	l = ft_strlen(s);
-	if (l > 0)
+	if (s)
 	{
-		write(fd, s, l);
+		if (l > 0)
+		{
+			write(fd, s, l);
+		}
 		write(fd, "\n", 1);
 	}
 }

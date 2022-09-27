@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:39:11 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:43:13 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:41:27 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	if ((*lst)->next)
 		ft_lstclear(&((*lst)->next), (*del));
 	ft_lstdelone(*lst, (*del));
+	*lst = NULL;
 }

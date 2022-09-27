@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:39:58 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 11:02:34 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:27:54 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!f || !del)
 		return (NULL);
+	first = NULL;
 	while (lst)
 	{
 		node = ft_lstnew(f(lst->content));
