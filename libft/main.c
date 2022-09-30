@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:46:37 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/29 18:30:54 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/09/29 18:16:06 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/09/29 18:50:48 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-void	ft_putnbr_fd(int n, int fd)
+void	print_array(char **arr)
 {
-	long	ln;
-	char	c;
+	int	i;
 
-	ln = n;
-	if (ln < 0)
+	i = 0;
+	while (arr[i])
 	{
-		ft_putchar_fd('-', fd);
-		ln *= -1;
+		printf ("i[%d]=%s_ len: %ld\n", i, arr[i], ft_strlen(arr[i]));
+		i++;
 	}
-	if (ln / 10)
-		ft_putnbr_fd(ln / 10, fd);
-	c = '0' + ln % 10;
-	ft_putchar_fd(c, fd);
+}
+
+void	main(void)
+{
+	char	**tabstr;
+	char	*splitme;
+
+	splitme = strdup("--1-2--3---4----5-----42");
+	tabstr = ft_split(splitme, '-');
+	print_array(tabstr);
 }

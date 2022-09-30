@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/* /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
@@ -6,10 +6,10 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:50:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:45:33 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:55:57 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "libft.h"
 
 static int	ft_is_sep(char c, char s)
@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	array = malloc(sizeof(char *) * (words +1));
 	while (i < words)
 	{
-		array[i] = malloc (sizeof(char) * (substring_len + 2));
+		array[i] = malloc (sizeof(char) * (substring_len + 1));
 		array[i][0] = '\0';
 		i++;
 	}
@@ -97,4 +97,67 @@ char	**ft_split(char const *s, char c)
 	words = 0;
 	ft_split_words(s, c, array, &words);
 	return (array);
+}
+ */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbaddrul <hbaddrul@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/07 17:02:38 by hbaddrul          #+#    #+#             */
+/*   Updated: 2021/11/21 20:30:08 by hbaddrul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+#include "libft.h"
+
+static size_t	ft_toklen(const char *s, char c)
+{
+	size_t	ret;
+
+	ret = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			++ret;
+			while (*s && *s != c)
+				++s;
+		}
+		else
+			++s;
+	}
+	return (ret);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**ret;
+	size_t	i;
+	size_t	len;
+
+	if (!s)
+		return (0);
+	i = 0;
+	ret = malloc(sizeof(char *) * (ft_toklen(s, c) + 1));
+	if (!ret)
+		return (0);
+	while (*s)
+	{
+		if (*s != c)
+		{
+			len = 0;
+			while (*s && *s != c && ++len)
+				++s;
+			ret[i++] = ft_substr(s - len, 0, len);
+		}
+		else
+			++s;
+	}
+	ret[i] = 0;
+	return (ret);
 }

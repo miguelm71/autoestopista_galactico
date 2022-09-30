@@ -6,11 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:36:24 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 15:40:48 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:09:45 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char	ft_get_digit(int *nbr)
 {
@@ -53,6 +54,21 @@ static char	*ft_rev(char *str)
 	return (str);
 }
 
+static int	ft_get_num_digits(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
@@ -60,7 +76,7 @@ char	*ft_itoa(int n)
 	int		i;
 
 	neg = (n < 0);
-	str = ft_calloc (sizeof(char), (11 + neg));
+	str = ft_calloc (sizeof(char), (ft_get_num_digits(n) + 1 + neg));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
