@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:16:06 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/29 18:50:48 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/30 21:06:22 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,15 @@ void	print_array(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		printf ("i[%d]=%s_ len: %ld\n", i, arr[i], ft_strlen(arr[i]));
-		i++;
+		printf ("atoi: %d\n", atoi("999999999999999999999999"));
+		printf ("atoi: %d\n", ft_atoi("999999999999999999999999"));
+		
 	}
 }
 
-void	main(void)
+int	main()
 {
-	char	**tabstr;
-	char	*splitme;
-
-	splitme = strdup("--1-2--3---4----5-----42");
-	tabstr = ft_split(splitme, '-');
-	print_array(tabstr);
+	printf ("%zu", ft_strlen(NULL));
 }
+
+//ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')

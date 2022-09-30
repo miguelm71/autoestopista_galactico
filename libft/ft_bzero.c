@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:30:56 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:42:46 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/09/30 19:20:09 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
-	if (!s)
-		return ;
 	i = 0;
 	while (i < n)
 	{
