@@ -6,11 +6,34 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:50:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/30 20:35:58 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:41:13 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_is_sep(char c, char s);
+
+static int	ft_get_words(const char *strg, char sep)
+{
+	int	i;
+	int	words;
+
+	words = 0;
+	i = 0;
+	while(strg[i] != '\0')
+	{
+		if (!ft_is_sep (strg[i], sep))
+		{
+			if (!(ft_is_sep(strg[i],sep)) && (ft_is_sep(strg[i + 1], sep)))
+			{
+				words++;
+			}
+		}
+		i++;
+	}
+	return (words);
+}
 
 static int	ft_is_sep(char c, char s)
 {
@@ -20,7 +43,8 @@ static int	ft_is_sep(char c, char s)
 		return (0);
 }
 
-static int	ft_get_words(const char *str, char sep)
+
+/* static int	ft_get_words(const char *str, char sep)
 {
 	int	i;
 	int	words;
@@ -37,7 +61,7 @@ static int	ft_get_words(const char *str, char sep)
 		i++;
 	}
 	return (words);
-}
+} */
 
 char	**ft_split(char const *s, char c)
 {

@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 17:19:31 by mmateo-m          #+#    #+#              #
-#    Updated: 2022/09/24 10:50:21 by mmateo-m         ###   ########.fr        #
+#    Updated: 2022/10/02 18:53:55 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS_BONUS	=		$(SRCS_BONUS:.c=.o)
 
 CC			=		gcc
 RM			=		rm -fr
-CFLAGS		=		-Wall -Wextra -Wall
+CFLAGS		=		-Wall -Wextra -Werror
 
 NAME		=		libft.a
 

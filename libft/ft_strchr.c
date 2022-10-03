@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:51:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/30 18:54:15 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:57:00 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	unsigned char chr;
+	unsigned char	chr;
 
 	chr = c;
 	while (*str)
