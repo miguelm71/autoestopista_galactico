@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 17:19:31 by mmateo-m          #+#    #+#              #
-#    Updated: 2022/10/02 18:53:55 by mmateo-m         ###   ########.fr        #
+#    Updated: 2022/10/09 12:43:07 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ SRCS = ft_isalpha.c	ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 OBJS		=		$(SRCS:.c=.o)
 
-SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-				ft_lstmap.c
+SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
 OBJS_BONUS	=		$(SRCS_BONUS:.c=.o)
 
