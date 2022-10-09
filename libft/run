@@ -1,4 +1,0 @@
-rm libft.h.gch
-rm a.out
-gcc -Werror -Wall -Wextra *.c *.h
-
