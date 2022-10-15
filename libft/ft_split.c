@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:50:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/10/09 11:26:30 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 11:21:31 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,26 @@ static int	ft_is_sep(char c, char s)
 		return (0);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_del(char **array, int words)
 {
-	int		words;
-	char	**array;
+	int	i;
+
+	i = 0;
+	while (i < words)
+	{
+		free (array[i]);
+		i++;
+	}
+	free (array);
+	return (NULL);
+}
+
+static char	**ft_dowork(char const *s, char c, char **array, int words)
+{
 	int		i;
 	size_t	len;
 
 	i = 0;
-	words = ft_get_words(s, c);
-	array = malloc(sizeof(char *) * (words +1));
-	if (!array)
-		return (NULL);
 	while (i < words)
 	{
 		if (!ft_is_sep(*s, c))
@@ -59,6 +67,8 @@ char	**ft_split(char const *s, char c)
 			while (!ft_is_sep(s[len], c))
 				len++;
 			array[i++] = ft_substr(s, 0, len);
+			if (array[i - 1] == NULL)
+				return (ft_del(array, i - 1));
 			s += (len + 1);
 		}
 		else
@@ -66,4 +76,16 @@ char	**ft_split(char const *s, char c)
 	}
 	array[words] = 0;
 	return (array);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		words;
+	char	**array;
+
+	words = ft_get_words(s, c);
+	array = malloc(sizeof(char *) * (words +1));
+	if (!array)
+		return (NULL);
+	return (ft_dowork(s, c, array, words));
 }

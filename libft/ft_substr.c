@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:58:48 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/10/03 14:13:22 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 10:45:28 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,17 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*ret;
 
+	ret = NULL;
 	if (!s)
 		return (0);
 	if (ft_strlen(s) < start)
-		len = 0;
+	{
+		ret = malloc (sizeof(char));
+		if (ret == NULL)
+			return (NULL);
+		*ret = '\0';
+		return (ret);
+	}
 	if (ft_strlen(s + start) < len)
 		len = ft_strlen(s + start);
 	ret = malloc(sizeof(char) * (len + 1));
