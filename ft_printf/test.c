@@ -3,15 +3,38 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdarg.h>
+#include "libft.h"
 
-int	mi_print(char *ss, ...)
+static int	ft_numparams(char *str)
+{
+	int	i;
+	int	params_count;
+
+	i = 0;
+	params_count = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '%' && str[i + 1] == '%')
+		{
+			params_count++;
+			i++;
+		}
+		i++;
+	}
+	return (params_count);
+}
+
+void ft_printf(char const *ss, ...)
 {
 	char	*str;
 	va_list	ptr;
-	char *param_string;
-	int param_integer;
+	va_list	ptr2;
+	char	*param_string;
+	int		param_integer;
 
-	va_start(ptr, ss); //inicializa el puntero a la lista de parametros.
+	//inicializa el puntero a la lista de parametros.
+	va_start(ptr, ss);
+	va_copy(ptr2, ptr);
 	str = ss;
 	while (*str)
 	{
@@ -41,15 +64,16 @@ int	mi_print(char *ss, ...)
 		}
 		str++;
 	}
+	char *i = va_arg(ptr, char *);
+	printf ("\n\nha recuperado: %s", i);
 	//finaliza el puntero a la lista de parametros
 	va_end(ptr);
 	write(1, "\n", 1);
-	return (0);
 }
 
 int	main(int argn, char **argv)
 {
 	char	ss[] = "hola ca%ira%acola.";
 
-	mi_print(ss, 34, "aaa");
+	ft_printf(ss, 34, "aaa");
 }
