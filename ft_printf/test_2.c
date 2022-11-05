@@ -9,6 +9,16 @@
 
 int	main(int argn, char **argv)
 {
+	printf ("|%x|\n", 156);
+	printf ("|%X|\n", 156);
+	printf ("|%#x|\n", 156);
+	printf ("|%#X|\n", 156);
+	printf ("|%05x|\n", 156);
+	printf ("|%05X|\n", 156);
+	printf ("|%0#5x|\n", 156);
+	printf ("|%+08X|\n", 156);
+	printf ("|%+0#8x|\n", 156);
+	printf ("|%0#5X|\n", 156);
 	printf("|% 05d|\n",0);
 	printf("|% 05d|\n",-7);
 	printf("|%- 5d|\n",0);
