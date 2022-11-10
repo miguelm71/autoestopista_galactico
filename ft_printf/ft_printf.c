@@ -6,13 +6,14 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/10 15:00:39 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:55:55 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-equipo
-static int	ft_get_flags(char *str, t_flags *sf)
+
+/**/
+static int	ft_get_flags(char *str, va_list *param_ptr)
 {
 	int		error;
 	t_flags	*flags;
@@ -29,33 +30,35 @@ static int	ft_get_flags(char *str, t_flags *sf)
 		{
 			error = ft_set_type_flag(*str, flags);
 			if (!error)
-			{
-				ft_print_param();
-				return (0);
-			}
+				return (ft_print_param(flags, param_ptr));
+		}
+		else
+		{
+			ft_end_flags(flags);
+			return (-1);
 		}
 		str++;
 	}
+	ft_end_flags(flags);
 	return (-1);
 }
-
+/**/
 static int	ft_process_param(char *str_cpy, va_list *param_ptr)
 {
+	int	i;
 	t_flags	flags;
 
-	if (ft_check_data_type_flag(str_cpy, &flags) == -1)
-	{
-		if (*str_cpy == "%")
-			ft_putchar_fd('%', 1);
-	}
+	i = 0;
+	if (*str_cpy == "%")
+		ft_putchar_fd('%', 1);
 	else
 	{
-		ft_get_flags(*str_cpy, &param_ptr);
-
+		i = ft_get_flags(*str_cpy, &param_ptr, param_ptr);
+		return (i);
 	}
 	return (0);
 }
-
+/**/
 int	ft_printf(char const *str, ...)
 {
 	int		nc;
@@ -67,7 +70,7 @@ int	ft_printf(char const *str, ...)
 	while (*str_cpy && ft_isprint(*str_cpy))
 	{
 		if (*str_cpy == "%")
-			ft_process_param(str_cpy, param_ptr);
+			ft_process_param(++str_cpy, param_ptr);
 		else
 			ft_putchar_fd(*str_cpy, 1);
 		str_cpy++;

@@ -6,12 +6,13 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:55:47 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/05 14:10:58 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:13:02 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**/
 //justify adding "0" at the left |0004|
 static int	ft_set_zero_flag(t_flags *flags)
 {
@@ -25,6 +26,7 @@ static int	ft_set_zero_flag(t_flags *flags)
 	return (-1);
 }
 
+/**/
 // @brief set decimal dot |  0.4|
 static int	ft_set_dot_flag(t_flags *flags)
 {
@@ -36,6 +38,7 @@ static int	ft_set_dot_flag(t_flags *flags)
 	return (-1);
 }
 
+/**/
 // @brief force to add sign in numbers |+3 or -3|
 static int	ft_set_plus_flag(t_flags *flags)
 {
@@ -49,6 +52,7 @@ static int	ft_set_plus_flag(t_flags *flags)
 	return (-1);
 }
 
+/**/
 // @brief for to add negative sign or an space for positive
 static int	ft_set_space_flag(t_flags *flags)
 {
@@ -62,6 +66,7 @@ static int	ft_set_space_flag(t_flags *flags)
 	return (-1);
 }
 
+/**/
 // @brief force to include base indicator 0x or 0X
 static int	ft_set_pad_flag(t_flags *flags)
 {
