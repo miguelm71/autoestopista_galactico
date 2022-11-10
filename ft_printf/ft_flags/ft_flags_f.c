@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/05 14:57:47 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/10 08:43:29 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_flags	*ft_init_flags(void)
 
 // @brief set width or number of decimals in t_flags structure
 // depending on previous presence of dot
-static int	ft_put_flag_number(int n, t_flags *flags)
+static int	ft_set_flag_number(int n, t_flags *flags)
 {
 	if (flags->dot == -1)
 	{
@@ -65,7 +65,7 @@ static int	ft_set_minus_flag(t_flags *flags)
 
 static int	ft_set_type_flag(char t, t_flags *flags)
 {
-	if (ft_is_flag(t))
+	if (ft_is_flag(t) && flags->data_type != 0)
 	{
 		flags->data_type = t;
 		return (0);

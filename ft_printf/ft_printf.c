@@ -6,40 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/05 15:04:15 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:00:39 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	ft_check_data_type_flag(char c, t_flags *flags)
-{
-	char	r;
-
-	r = 1;
-	if (c == 'c')
-		ft_set_sf->data_type = 'c';
-	else if (c == 's')
-		sf->data_type = 's';
-	else if (c == 'p')
-		sf->data_type = 'p';
-	else if (c == 'd')
-		sf->data_type = 'd';
-	else if (c == 'i')
-		sf->data_type = 'i';
-	else if (c == 'u')
-		sf->data_type = 'u';
-	else if (c == 'x')
-		sf->data_type = 'x';
-	else if (c == 'X')
-		sf->data_type = 'X';
-	else
-		r = 0;
-	return (r);
-}
-
-
-
+equipo
 static int	ft_get_flags(char *str, t_flags *sf)
 {
 	int		error;
@@ -47,7 +19,7 @@ static int	ft_get_flags(char *str, t_flags *sf)
 
 	error = 0;
 	flags = ft_init_flags();
-	while ((ft_is_type(*str) || ft_is_flag(str)) && !error)
+	while ((ft_is_type(*str) || ft_is_flag(*str)) && !error)
 	{
 		if (ft_is_flag(*str))
 		{
@@ -56,11 +28,15 @@ static int	ft_get_flags(char *str, t_flags *sf)
 		else if (ft_is_type(*str))
 		{
 			error = ft_set_type_flag(*str, flags);
-			ft_print_param();
-			return (0);
+			if (!error)
+			{
+				ft_print_param();
+				return (0);
+			}
 		}
-		return (-1);
+		str++;
 	}
+	return (-1);
 }
 
 static int	ft_process_param(char *str_cpy, va_list *param_ptr)
