@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/10 19:13:28 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:17:05 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,3 @@ static int	ft_is_flag(char c)
 	else
 		return (0);
 }
-
-/* static int	ft_set_data_type_flag(char c, t_flags *flags)
-{
-	char	r;
-
-	r = 1;
-	if (c == 'c')
-		flags->data_type = 'c';
-	else if (c == 's')
-		flags->data_type = 's';
-	else if (c == 'p')
-		flags->data_type = 'p';
-	else if (c == 'd')
-		flags->data_type = 'd';
-	else if (c == 'i')
-		flags->data_type = 'i';
-	else if (c == 'u')
-		flags->data_type = 'u';
-	else if (c == 'x')
-		flags->data_type = 'x';
-	else if (c == 'X')
-		flags->data_type = 'X';
-	else
-		r = 0;
-	return (r);
-} */

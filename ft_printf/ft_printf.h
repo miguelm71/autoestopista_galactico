@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/10 07:48:17 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:42:38 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "./ft_flags/ft_flags.h"
+# include <stdarg.h>
 
 int	ft_printf(char const *, ...);
 
