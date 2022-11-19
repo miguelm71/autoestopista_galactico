@@ -6,11 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/12 14:54:21 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:57:59 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printer.h"
+#include "../tools/ft_tools.h"
 
 int	ft_print_param(t_flags flags, va_list param_ptr)
 {
@@ -37,29 +38,80 @@ int	ft_print_param(t_flags flags, va_list param_ptr)
 	return (r);
 }
 
-static int	ft_print_char(t_list *attribute, va_list param_ptr)
+static int	ft_print_list(t_list *list)
+{
+	int		n;
+	t_list	*node;
+
+	n = 0;
+	node = list;
+	while (node != NULL)
+	{
+		if (list->content != NULL)
+		{
+			ft_putchar_fd(list->content, 1);
+			n++;
+			node = node->next;
+		}
+		else
+			break ;
+	}
+	ft_lstclear(list, &ft_delchar);
+	return (n);
+}
+
+static int	ft_print_char(t_flags *flags, va_list param_ptr)
 {
 	char	c;
 	t_list	*node;
 
 	c = va_arg(param_ptr, char);
 	node = ft_lstnew(&c);
+	//TODO proccess flags
 	if (node != NULL)
 		return (-1);
-	ft_lstadd_front(&attribute, node);
-	return (ft_print_list(attribute));
+	return (ft_print_list(node));
 }
 
-static int ft_print_list(t_list *list)
+static int	ft_print_string(t_list *attribute, va_list param_ptr)
 {
-	int n;
-	int	c;
+	char	*str;
+	t_list	*head;
+	t_list	*node;
 
-	c = 0;
-	n = ft_lstsize (&list);
-	while (c < n)
+	str = va_arg(param_ptr, char *);
+	if (*str)
 	{
-		ft_putchar_fd(ft_lst)
+		head = ft_lstnew(str);
+		if (head == NULL)
+			return ;
 	}
+	str++;
+	while (*str)
+	{
+		node = ft_lstnew(str);
+		if (node == NULL)
+			return ;
+		ft_lstadd_back(head, node);
+	}
+	//TODO processs flags
+	return (ft_print_list(head));
+}
 
+static void	ft_print_pointer(t_list *attribute, va_list param_ptr)
+{
+	t_list	*node;
+	t_list	*cmd;
+
+	node = ft_lstnew(" ");
+	cmd = node;
+	ft_putnbr_base(node, "0123456789abcdef");
+	node = node->next;
+	ft_lstdelone(cmd, &ft_delchar);
+	//TODO process flags
+	cmd = ft_lstnew(ft_cpychar("x"));
+	ft_lstadd_front(node, cmd);
+	cmd = ft_lstnew(ft_cpychar("0"));
+	ft_lstadd_front(node, cmd);
+	ft_print_list(node);
 }

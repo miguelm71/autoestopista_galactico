@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
+/*   By: mmateo-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/19 13:25:15 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/07/14 17:05:30 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/07/14 17:10:08 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_strlen(char *str)
+{
+	int	i;
 
-# include "../libft/libft.h"
-# include "./ft_flags/ft_flags.h"
-# include <stdarg.h>
-
-
-int	ft_printf(char const *, ...);
-
-
-#endif
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}

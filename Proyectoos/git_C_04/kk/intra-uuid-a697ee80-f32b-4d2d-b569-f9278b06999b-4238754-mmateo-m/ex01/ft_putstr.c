@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
+/*   By: mmateo-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/19 13:25:15 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/07/14 17:27:46 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/07/14 17:35:56 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
 
-# include "../libft/libft.h"
-# include "./ft_flags/ft_flags.h"
-# include <stdarg.h>
+void	ft_putstr(char *str)
+{
+	char	*ptr;
 
-
-int	ft_printf(char const *, ...);
-
-
-#endif
+	ptr = str;
+	while (*ptr != '\0')
+	{
+		write (1, ptr, 1);
+		ptr++;
+	}
+}

@@ -29,7 +29,7 @@ int	main(int argn, char **argv)
 	printf("|%+#f|\n",7.); */
 	
 
-	printf("|%05s|\n", "hol");	//|00hol|
+	/* printf("|%05s|\n", "hol");	//|00hol|
 	printf("|%50s|\n", "hol");	//|00hol|
 	printf("|%-5s|\n", "hol1");	//|hol1  |
 	printf("|%-05s|\n", "hol1");//|hol1  |
@@ -45,7 +45,7 @@ int	main(int argn, char **argv)
 	printf("|%-5.2s|\n", "hol");
 	printf("|% 5.2s|\n", "hol");
 	printf("|%05.2s|\n", "hol");
-	printf("|%#5.2s|\n", "hol");
+	printf("|%#5.2s|\n", "hol"); */
 	
 /* 	double i = 2.7835;
 	double j = -2.7835;
@@ -61,5 +61,14 @@ int	main(int argn, char **argv)
 	printf("|%10.5f|\n",i);
 	printf("|%10.5f|\n",j);
  */
-
+	char *str;
+	double n;
+	long int l;
+	str = strdup("hola cara cola");
+	printf ("str: %s\n", str);
+	printf ("ptr de str: %p\n", str);
+	printf ("long de un puntero: %lu\n", sizeof(&str));
+	printf ("long de un double: %lu\n", sizeof(n));
+	printf ("long de un long int: %lu\n", sizeof(l));
+	
 }
