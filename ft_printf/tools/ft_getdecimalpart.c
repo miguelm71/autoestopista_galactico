@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:56:58 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/21 21:21:40 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:13:26 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int ft_getdecimal (double nbr, int digits)
 
 int main ()
 {
-    double d = 84.234;
+    double d = 84.2341;
     printf ("el original: %f\n", d);
     printf ("parte decimal: %d\n", ft_getdecimal(d, -1));
     return (1);

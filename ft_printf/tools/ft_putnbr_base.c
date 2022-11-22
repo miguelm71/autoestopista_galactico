@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:09 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/21 19:34:53 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:03:10 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,6 @@ int	ft_has_signs(char *str)
 		i++;
 	}
 	return (0);
-}
-
-void	ft_write_char(char c)
-{
-	write(1, &c, 1);
 }
 
 void	ft_putnbr_base(t_list *head, long int nbr, char *base)

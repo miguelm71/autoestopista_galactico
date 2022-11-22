@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/19 13:57:59 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:39:01 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static void	ft_print_pointer(t_list *attribute, va_list param_ptr)
 
 	node = ft_lstnew(" ");
 	cmd = node;
-	ft_putnbr_base(node, "0123456789abcdef");
+	ft_putnbr_base(node, (long int)(va_arg(param_ptr, void *)),"0123456789abcdef");
 	node = node->next;
 	ft_lstdelone(cmd, &ft_delchar);
 	//TODO process flags

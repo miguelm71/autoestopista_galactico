@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_decimals.c                                      :+:      :+:    :+:   */
+/*   ft_printer2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 14:18:18 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/19 14:29:42 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/11/22 19:24:58 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/11/22 19:38:57 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printer.h"
+#include "../tools/ft_tools.h"
 
-static int ft_get_numdigits_decimalpart(double d)
+static void	ft_print_decimal(t_flags *flags, va_list param_ptr)
 {
-	int	n;
-	long long l1;
-	
-	n = 0;
-	while((d  * 10 ^ n) - ((long int)(d * 10 ^ n)) != 0)
+	t_list	*node;
+	t_list	*cmd;
+
+	node = ft_lstnew(" ");
+	cmd = node;
+	ft_putnbr_base(node, (long int)(va_arg(param_ptr, long)), "0123456789");
+	node = node->next;
+	ft_lstdelone(cmd, &ft_delchar);
+	//TODO process flags
+	ft_print_list(node);
 }
