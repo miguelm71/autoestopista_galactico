@@ -5,7 +5,22 @@
 #include <stdarg.h>
 
 
-
+long ft_ten_pow (int n)
+{
+	int i = 1;
+	long l = 10;
+	if (n == 0)
+		return (1);
+	else if (n == 1)
+		return (10);
+	while (i < n)
+	{
+		l = l * 10;
+		i++;
+	}
+	return (l);
+	
+}
 
 int	main(int argn, char **argv)
 {
@@ -61,7 +76,7 @@ int	main(int argn, char **argv)
 	printf("|%10.5f|\n",i);
 	printf("|%10.5f|\n",j);
  */
-	char *str;
+	/* char *str;
 	double n;
 	long int l;
 	str = strdup("hola cara cola");
@@ -69,6 +84,28 @@ int	main(int argn, char **argv)
 	printf ("ptr de str: %p\n", str);
 	printf ("long de un puntero: %lu\n", sizeof(&str));
 	printf ("long de un double: %lu\n", sizeof(n));
-	printf ("long de un long int: %lu\n", sizeof(l));
+	printf ("long de un long int: %lu\n", sizeof(l)); */
+	//float n = 23.34567f;
+	double n = 2.8;
+	printf ("un double: %.4f \n", n);
+
 	
+	int i = 0;
+	long p;
+	double d;
+	long a;
+	double b;
+	if (n < 0)
+		n = n * -1;
+	a = (long)n;
+	d = n - a;
+	while (d > 0)
+	{
+		i++;
+		p = ft_ten_pow (i);
+		a = (long)(n * p);
+		b = (n * p);
+		d = b - a; 
+	}
+	printf ("numero de decimales: %d\n", i);
 }

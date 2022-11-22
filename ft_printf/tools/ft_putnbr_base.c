@@ -6,13 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:09 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/19 13:41:15 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:34:53 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <unistd.h>
-#include "../../ft_printf.h"
+#include "../ft_printf.h"
 #include "../ft_flags/ft_flags.h"
 #include "../ft_printer/ft_printer.h"
 #include "ft_tools.h"
@@ -66,7 +65,7 @@ void	ft_write_char(char c)
 	write(1, &c, 1);
 }
 
-void ft_putnbr_base(t_list *head, long int nbr, char *base)
+void	ft_putnbr_base(t_list *head, long int nbr, char *base)
 {
 	int			len;
 	long int	mi_nbr;
