@@ -6,13 +6,13 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:58:25 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/24 09:46:02 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_char_present(char const *set, char c)
+int	ft_char_present(char const *set, char c)
 {
 	int	i;
 

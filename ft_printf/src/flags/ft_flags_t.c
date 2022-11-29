@@ -6,13 +6,13 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/12 14:17:05 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_flags.h"
 /**/
-static int	ft_is_type(char c)
+int	ft_is_type(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
 		|| c == 'u' || c == 'x' || c == 'X')
@@ -21,7 +21,7 @@ static int	ft_is_type(char c)
 		return (0);
 }
 /**/
-static int	ft_parse_flags(char *str, t_flags *flags)
+int	ft_parse_flags(char *str, t_flags *flags)
 {
 	int	n;
 
@@ -43,7 +43,7 @@ static int	ft_parse_flags(char *str, t_flags *flags)
 	return (n);
 }
 /**/
-static int	ft_is_flag(char c)
+int	ft_is_flag(char c)
 {
 	if (c == '+' || c == '-' || c == ' ' || c == '.' || c == '#'
 		|| ft_isdigit(c))

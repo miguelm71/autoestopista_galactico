@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:20:13 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/27 20:01:02 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:07:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "../printer/ft_printer.h"
 
 void		ft_putnbr_base(t_list *node, long int nbr, char *base);
-static char	*ft_cpychar(char c);
-static void	ft_delchar(char *c);
+char	*ft_cpychar(char c);
+void	ft_delchar(void *c);
 
 
 #endif

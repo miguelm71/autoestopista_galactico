@@ -6,24 +6,24 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:21:43 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/19 13:35:19 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:43:09 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tools.h"
 
-static char	*ft_cpychar(char c)
+char	*ft_cpychar(char c)
 {
 	char	*ch;
 
 	ch = NULL;
 	ch = malloc (1);
-	if (c != NULL)
+	if (c > 0)
 		*ch = c;
 	return (ch);
 }
 
-static void	ft_delchar(char *c)
+void	ft_delchar(void *c)
 {
 	if (c != NULL)
 		free (c);

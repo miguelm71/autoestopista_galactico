@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:56:58 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/22 18:13:26 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ long ft_ten_pow (int n)
 	
 }
 
-static int ft_getdecimal (double nbr, int digits)
+int ft_getdecimal (double nbr, int digits)
 {
     double  d;
     int i;

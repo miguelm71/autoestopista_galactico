@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2022/11/28 19:51:18 by mmateo-m         ###   ########.fr        #
+#    Updated: 2022/11/29 20:59:25 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,5 +46,6 @@ fclean:		make fclean -C libft
 re: 		fclean $(NAME)
 
 bonus:		$(OBJS) $(OBJS_BONUS)
-				 ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-				 ranlib $(NAME)
+				$(CFLAGS) =+ -DBONUS=1
+				ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+				ranlib $(NAME)

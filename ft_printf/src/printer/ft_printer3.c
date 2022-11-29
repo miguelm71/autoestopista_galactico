@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printer3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 19:56:09 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/11/29 21:30:38 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printer.h"
 
-# include <stdarg.h>
-# include "../libft/libft.h"
-# include "./flags/ft_flags.h"
-# include "./printer/ft_printer.h"
+#ifdef BONUS
 
-int	ft_printf(char const *str, ...);
+void	ft_process_flags(t_list *list, t_flags *flags)
+{
+	ft_putchar ("1");
+	return (0);
+}
+
+#else
+
+void	ft_process_flags(t_list *list, t_flags *flags)
+{
+	ft_putchar("2");
+}
 
 #endif

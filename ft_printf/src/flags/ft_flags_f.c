@@ -6,12 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/10 19:57:02 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
+#include "ft_flags.h"
 /***/
 // @brief initialize a t_flags structure
 t_flags	*ft_init_flags(void)
@@ -30,7 +29,7 @@ t_flags	*ft_init_flags(void)
 	return (flags);
 }
 
-static void	ft_end_flags(t_flags *flags)
+void	ft_end_flags(t_flags *flags)
 {
 	free (flags);
 }
@@ -38,7 +37,7 @@ static void	ft_end_flags(t_flags *flags)
 /**/
 // @brief set width or number of decimals in t_flags structure
 // depending on previous presence of dot
-static int	ft_set_flag_number(int n, t_flags *flags)
+int	ft_set_flag_number(int n, t_flags *flags)
 {
 	if (flags->dot == -1)
 	{
@@ -59,7 +58,7 @@ static int	ft_set_flag_number(int n, t_flags *flags)
 
 /**/
 // @brief justify adding spaces at the righ |4   |
-static int	ft_set_minus_flag(t_flags *flags)
+int	ft_set_minus_flag(t_flags *flags)
 {
 	if (flags->minus == -1)
 	{
@@ -72,7 +71,7 @@ static int	ft_set_minus_flag(t_flags *flags)
 }
 
 /**/
-static int	ft_set_type_flag(char t, t_flags *flags)
+int	ft_set_type_flag(char t, t_flags *flags)
 {
 	if (ft_is_flag(t) && flags->data_type != 0)
 	{
@@ -81,7 +80,7 @@ static int	ft_set_type_flag(char t, t_flags *flags)
 	}
 	return (-1);
 }
-/* static int	ft_set_zero(t_flags *flags)
+/* int	ft_set_zero(t_flags *flags)
 {
 	if (flags->zero == -1)
 	{
@@ -93,7 +92,7 @@ static int	ft_set_type_flag(char t, t_flags *flags)
 	return (-1);
 }
 
-static int	ft_set_dot(t_flags *flags)
+int	ft_set_dot(t_flags *flags)
 {
 	if (flags->dot == -1){
 		flags->dot = 1;
@@ -102,7 +101,7 @@ static int	ft_set_dot(t_flags *flags)
 	return (-1);
 }
 
-static int	ft_set_plus(t_flags *flags)
+int	ft_set_plus(t_flags *flags)
 {
 	if (flags->plus == -1)
 	{
@@ -114,7 +113,7 @@ static int	ft_set_plus(t_flags *flags)
 	return (-1);
 }
 
-static int ft_set_space (t_flags *flags)
+int ft_set_space (t_flags *flags)
 {
 	if (flags->space == -1)
 	{
@@ -126,7 +125,7 @@ static int ft_set_space (t_flags *flags)
 	return (-1);
 }
 
-static int ft_set_pad(t_flags *flags)
+int ft_set_pad(t_flags *flags)
 {
 	if (flags->pad == -1)
 	{

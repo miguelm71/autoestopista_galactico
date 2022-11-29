@@ -6,14 +6,14 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:36:24 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/28 18:09:45 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char	ft_get_digit(int *nbr)
+char	ft_get_digit(int *nbr)
 {
 	long int	lnb;
 	int			digit;
@@ -35,7 +35,7 @@ static char	ft_get_digit(int *nbr)
 	return (digit + '0');
 }
 
-static char	*ft_rev(char *str)
+char	*ft_rev(char *str)
 {
 	int		l;
 	int		i;
@@ -54,7 +54,7 @@ static char	*ft_rev(char *str)
 	return (str);
 }
 
-static int	ft_get_num_digits(int n)
+int	ft_get_num_digits(int n)
 {
 	int	i;
 

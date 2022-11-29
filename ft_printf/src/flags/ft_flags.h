@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:28:11 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/10 19:14:05 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:54 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,19 @@ typedef struct s_flags
 	char	data_type;
 }t_flags;
 
-static t_flags	*ft_init_flags(void);
-static int		ft_set_flag_number(int n, t_flags *flags);
-static int		ft_set_minus_flag(t_flags *flags);
-static int		ft_set_zero_flag(t_flags *flags);
-static int		ft_set_dot_flag(t_flags *flags);
-static int		ft_set_plus_flag(t_flags *flags);
-static int		ft_set_space_flag(t_flags *flags);
-static int		ft_set_pad_flag(t_flags *flags);
-static int		ft_set_type_flag(char t, t_flags *flags);
-static int		ft_is_type(char c);
-static int		ft_is_flag(char c);
-static int		ft_set_data_type_flag(char c, t_flags *flags);
-static int		ft_parse_flags(char *str, t_flags *flags);
+int		ft_set_flag_number(int n, t_flags *flags);
+int		ft_set_minus_flag(t_flags *flags);
+int		ft_set_zero_flag(t_flags *flags);
+int		ft_set_dot_flag(t_flags *flags);
+int		ft_set_plus_flag(t_flags *flags);
+int		ft_set_space_flag(t_flags *flags);
+int		ft_set_pad_flag(t_flags *flags);
+int		ft_set_type_flag(char t, t_flags *flags);
+int		ft_is_type(char c);
+int		ft_is_flag(char c);
+int		ft_set_data_type_flag(char c, t_flags *flags);
+int		ft_parse_flags(char *str, t_flags *flags);
+t_flags	*ft_init_flags(void);
+void	ft_end_flags(t_flags *flags);
 
 #endif

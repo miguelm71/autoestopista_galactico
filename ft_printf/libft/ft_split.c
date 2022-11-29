@@ -6,15 +6,15 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:50:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/10/15 11:21:31 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_is_sep(char c, char s);
+int	ft_is_sep(char c, char s);
 
-static int	ft_get_words(const char *strg, char sep)
+int	ft_get_words(const char *strg, char sep)
 {
 	int	i;
 	int	words;
@@ -31,7 +31,7 @@ static int	ft_get_words(const char *strg, char sep)
 	return (words);
 }
 
-static int	ft_is_sep(char c, char s)
+int	ft_is_sep(char c, char s)
 {
 	if (c == s || c == '\0')
 		return (1);
@@ -39,7 +39,7 @@ static int	ft_is_sep(char c, char s)
 		return (0);
 }
 
-static char	**ft_del(char **array, int words)
+char	**ft_del(char **array, int words)
 {
 	int	i;
 
@@ -53,7 +53,7 @@ static char	**ft_del(char **array, int words)
 	return (NULL);
 }
 
-static char	**ft_dowork(char const *s, char c, char **array, int words)
+char	**ft_dowork(char const *s, char c, char **array, int words)
 {
 	int		i;
 	size_t	len;

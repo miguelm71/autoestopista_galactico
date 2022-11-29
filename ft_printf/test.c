@@ -5,7 +5,7 @@
 #include <stdarg.h>
 #include "libft.h"
 
-static int	ft_numparams(char *str)
+int	ft_numparams(char *str)
 {
 	int	i;
 	int	params_count;
