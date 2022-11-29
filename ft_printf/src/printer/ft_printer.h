@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:00:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/27 19:44:59 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:56:11 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../flags/ft_flags.h"
 # include "../tools/ft_tools.h"
 
-int			ft_print_param(t_flags flags, va_list param_ptr);
+int			ft_print_param(t_flags *flags, va_list param_ptr);
 static int	ft_print_list(t_list *list);
 static int	ft_print_char(t_flags *flags, va_list param_ptr);
 static int	ft_print_string(t_list *attribute, va_list param_ptr);

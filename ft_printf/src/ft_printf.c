@@ -6,13 +6,13 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/27 20:03:01 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:57:17 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_get_flags(char *str, va_list *param_ptr)
+static int	ft_get_flags(char *str, va_list param_ptr)
 {
 	int		error;
 	t_flags	*flags;
@@ -50,7 +50,7 @@ static int	ft_process_param(char *str_cpy, va_list *param_ptr)
 		ft_putchar_fd('%', 1);
 	else
 	{
-		i = ft_get_flags(*str_cpy, &param_ptr);
+		i = ft_get_flags(*str_cpy, param_ptr);
 		return (i);
 	}
 	return (0);
