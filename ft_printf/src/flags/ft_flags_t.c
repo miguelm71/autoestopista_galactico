@@ -6,11 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:10:29 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_flags.h"
+
 /**/
 int	ft_is_type(char c)
 {
@@ -20,6 +21,7 @@ int	ft_is_type(char c)
 	else
 		return (0);
 }
+
 /**/
 int	ft_parse_flags(char *str, t_flags *flags)
 {
@@ -42,6 +44,7 @@ int	ft_parse_flags(char *str, t_flags *flags)
 		n = ft_set_flag_number(ft_atoi(str), flags);
 	return (n);
 }
+
 /**/
 int	ft_is_flag(char c)
 {

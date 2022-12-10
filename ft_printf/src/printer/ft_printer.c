@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 21:42:24 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:03:35 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_print_param(t_flags *flags, va_list param_ptr)
 {
 	int		r;
 
+	r = -1;
 	if (flags->data_type == 'c')
 		r = ft_print_char(flags, param_ptr);
 	else if (flags->data_type == 's')
@@ -32,8 +33,6 @@ int	ft_print_param(t_flags *flags, va_list param_ptr)
 		r = ft_print_hex(flags, param_ptr, 1);
 	else if (flags->data_type == 'X')
 		r = ft_print_hex(flags, param_ptr, 0);
-	else
-		return (-1);	
 	return (r);
 }
 

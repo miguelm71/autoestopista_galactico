@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printer4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 19:56:09 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/12/10 16:13:17 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printer.h"
 
-# include <stdarg.h>
-# include "../libft/libft.h"
-# include "./flags/ft_flags.h"
-# include "./printer/ft_printer.h"
+void	ft_process_flags(t_list *list, t_flags *flags)
+{
+	void	*p;
 
-int	ft_printf(char const *str, ...);
-
-#endif
+	p = list->next;
+	(*flags).data_type = 0;
+}

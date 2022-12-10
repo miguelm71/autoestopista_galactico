@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:50:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 12:01:49 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_is_sep(char c, char s);
 

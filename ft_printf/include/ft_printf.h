@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:53:03 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 12:01:49 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/12/10 11:21:46 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t	i;
-	size_t	j;
-	char	*r;
+# include <stdarg.h>
+# include "./libft.h"
+# include "../src/flags/ft_flags.h"
+# include "../src/printer/ft_printer.h"
 
-	r = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (r == NULL)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-	{
-		r[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		r[i + j] = s2[j];
-		j++;
-	}
-	r[i + j] = '\0';
-	return (r);
-}
+int	ft_printf(char const *str, ...);
+
+#endif

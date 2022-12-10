@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:09 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/27 20:00:35 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 10:18:03 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_putnbr_base(t_list *head, long int nbr, char *base)
 {
 	int			len;
 	long int	mi_nbr;
-	char		*c;
 	t_list		*node;
 
 	mi_nbr = nbr;
@@ -70,17 +69,18 @@ void	ft_putnbr_base(t_list *head, long int nbr, char *base)
 	if (mi_nbr < 0)
 	{
 		mi_nbr = mi_nbr * -1;
-		ft_write_char ('-');
+		node = ft_lstnew(ft_cpychar('-'));
+		ft_lstadd_back(&head, node);
 	}
 	if (mi_nbr < len)
 	{
 		node = ft_lstnew(ft_cpychar(base[mi_nbr]));
-		ft_lstadd_back(head, node);
+		ft_lstadd_back(&head, node);
 	}
 	else
 	{
-		ft_putnbr_base(mi_nbr / len, base);
-		ft_putnbr_base(mi_nbr % len, base);
+		ft_putnbr_base(head, mi_nbr / len, base);
+		ft_putnbr_base(head, mi_nbr % len, base);
 	}
 }
 

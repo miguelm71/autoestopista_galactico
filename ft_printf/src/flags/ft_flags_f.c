@@ -6,11 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:23:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_flags.h"
+
 /***/
 // @brief initialize a t_flags structure
 t_flags	*ft_init_flags(void)

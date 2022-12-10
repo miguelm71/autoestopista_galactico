@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:39:11 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/09/27 18:41:27 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 12:00:56 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

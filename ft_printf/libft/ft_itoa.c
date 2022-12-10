@@ -6,12 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:36:24 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 19:55:30 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/10 11:58:45 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../include/libft.h"
 
 char	ft_get_digit(int *nbr)
 {
