@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:28:11 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 13:10:45 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/17 14:11:04 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_FLAGS_H
 
 # include <stdlib.h>
-# include "../../include/libft.h"
+# include "../../libft/libft.h"
 
 typedef struct s_flags
 {

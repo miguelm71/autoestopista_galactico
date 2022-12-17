@@ -6,14 +6,15 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:00:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 11:34:25 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2022/12/17 14:11:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTER_H
 # define FT_PRINTER_H
+
 # include <stdarg.h>
-# include "../../include/libft.h"
+# include "../../libft/libft.h"
 # include "../flags/ft_flags.h"
 # include "../tools/ft_tools.h"
 

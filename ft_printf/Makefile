@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2022/12/10 16:14:11 by mmateo-m         ###   ########.fr        #
+#    Updated: 2022/12/17 14:07:43 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC			=		gcc
 RM			=		rm -fr
 CFLAGS		=		-Wall -Wextra -Werror
 
-NAME		=		ft_printf.a
+NAME		=		libftprintf.a
 LIBFT_NAME	=		libft.a
 
-HEADER = 			./include/ft_printf.h
-LIBFT_HEADER =		./include/libft.h
+HEADER = 			./ft_printf.h
+LIBFT_HEADER =		./libft/libft.h
 
 SRCS_LIBFT = 		./libft/ft_isalpha.c \
 					./libft/ft_isdigit.c \
@@ -64,7 +64,7 @@ SRCS_LIBFT = 		./libft/ft_isalpha.c \
 					./libft/ft_lstiter.c \
 					./libft/ft_lstmap.c
 
-SRCS = 				./src/ft_printf.c \
+SRCS = 				ft_printf.c \
 					./src/printer/ft_printer.c \
 					./src/printer/ft_printer2.c \
 					./src/tools/ft_charmng.c \
@@ -78,10 +78,13 @@ SRCS_BONUS	= 		./src/printer/ft_printer4.c \
 
 SRCS_NOBONUS =		./src/printer/ft_printer3.c
 
+SRCS_DEBUG	=		./src/test.c
+
 OBJS_LIBFT	=		$(SRCS_LIBFT:.c=.o)
 OBJS		=		$(SRCS:.c=.o)
 OBJS_BONUS	=		$(SRCS_BONUS:.c=.o)
 OBJS_NO_BONUS = 	$(SRCS_NOBONUS:.c=.o)
+OBJS_DEBUG	=		$(SRCS_DEBUG:.c=.o)
 
 
 all:		$(NAME)
@@ -92,7 +95,6 @@ libft: 		$(OBJS_LIBFT) $(LIBFT_HEADER)
 $(NAME): 	libft $(OBJS) $(OBJS_NO_BONUS) $(HEADER) $(LIBFT_HEADER)
 				$(AR) -rcs $(NAME) $(OBJS) $(OBJS_NO_BONUS)
 
-bonus:		CFLAGS = -Wall -Wextra -Werror -DBONUS="1"
 bonus:		libft $(OBJS) $(HEADER) $(LIBFT_HEADER) $(OBJS_BONUS)
 							ar -rv $(NAME) $(SRCS_NOBONUS)
 							ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
@@ -105,4 +107,5 @@ fclean:		clean
 
 re:			fclean all
 
-.phony:		bonus_compilation
+debug:		libft $(OBJS) $(OBJS_BONUS) $(OBJS_DEBUG)
+			gcc -o test.a 

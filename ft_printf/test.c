@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:38:26 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/17 13:25:31 by mmateo-m         ###   ########.fr       */
+/*   Created: 2022/12/17 12:47:17 by mmateo-m          #+#    #+#             */
+/*   Updated: 2022/12/17 14:22:45 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	main(void)
 {
-	if (lst && *lst && new)
-		new->next = *lst;
-	*lst = new;
+	ft_printf("Hola");
+	return (1);
 }
