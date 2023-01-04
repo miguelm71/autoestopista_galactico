@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2022/12/17 14:07:43 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/01/03 16:29:11 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,5 +107,5 @@ fclean:		clean
 
 re:			fclean all
 
-debug:		libft $(OBJS) $(OBJS_BONUS) $(OBJS_DEBUG)
-			gcc -o test.a 
+debug:		
+			gcc -g -Wall ./libft/*.c *.c ./src/flags/*.c ./src/printer/*.c ./src/tools/*.c -o test

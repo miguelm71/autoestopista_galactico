@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:47:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/17 14:22:45 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/03 16:27:55 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	main(void)
 {
-	ft_printf("Hola");
+	ft_printf("Hola pepe");
 	return (1);
 }
