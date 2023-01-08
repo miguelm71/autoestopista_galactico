@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_t.c                                       :+:      :+:    :+:   */
+/*   ft_flags2_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 13:10:29 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/04 19:53:08 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_flags.h"
 
 /**/
-int	ft_is_type(char c)
-{
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
-		|| c == 'u' || c == 'x' || c == 'X')
-		return (1);
-	else
-		return (0);
-}
-
-/**/
-int	ft_parse_flags(char *str, t_flags *flags)
+int	ft_parse_flags_(char *str, t_flags *flags)
 {
 	int	n;
 
@@ -45,12 +35,4 @@ int	ft_parse_flags(char *str, t_flags *flags)
 	return (n);
 }
 
-/**/
-int	ft_is_flag(char c)
-{
-	if (c == '+' || c == '-' || c == ' ' || c == '.' || c == '#'
-		|| ft_isdigit(c))
-		return (1);
-	else
-		return (0);
-}
+

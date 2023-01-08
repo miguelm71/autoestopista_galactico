@@ -6,13 +6,13 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 13:03:35 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:04:12 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printer.h"
 
-int	ft_print_param(t_flags *flags, va_list param_ptr)
+int	ft_print_param(t_flags *flags, va_list *param_ptr)
 {
 	int		r;
 
@@ -45,7 +45,7 @@ int	ft_print_list(t_list *list)
 	node = list;
 	while (node != NULL)
 	{
-		if (list->content != NULL)
+		if (node->content != NULL)
 		{
 			ft_putchar_fd(*((char *)(list->content)), 1);
 			n++;
@@ -54,55 +54,60 @@ int	ft_print_list(t_list *list)
 		else
 			break ;
 	}
-	ft_lstclear(&list, &ft_delchar);
+	if (list != NULL)
+		ft_lstclear(&list, &ft_delchar);
 	return (n);
 }
 
-int	ft_print_char(t_flags *flags, va_list param_ptr)
+int	ft_print_char(t_flags *flags, va_list *param_ptr)
 {
 	char	c;
 	t_list	*node;
 
-	c = va_arg(param_ptr, int);
-	node = ft_lstnew(&c);
-	if (node != NULL)
+	c = va_arg(*param_ptr, int);
+	node = ft_lstnew(ft_cpychar(c));
+	if (node == NULL)
 		return (-1);
 	ft_process_flags(node, flags);
 	return (ft_print_list(node));
 }
 
-int	ft_print_string(t_flags *flags, va_list param_ptr)
+int	ft_print_string(t_flags *flags, va_list *param_ptr)
 {
 	char	*str;
 	t_list	*head;
 	t_list	*node;
 
-	str = va_arg(param_ptr, char *);
-	if (*str)
+	head = NULL;
+	str = va_arg(*param_ptr, char *);
+	while (str != NULL && *str != '\0')
 	{
-		head = ft_lstnew(str);
 		if (head == NULL)
-			return (0);
-	}
-	str++;
-	while (*str)
-	{
-		node = ft_lstnew(str);
+		{
+			head = ft_lstnew(ft_cpychar(*str));
+			if (head == NULL)
+				return (0);
+			str++;
+			continue;
+		}
+		node = ft_lstnew(ft_cpychar(*str));
 		if (node == NULL)
 			return (0);
 		ft_lstadd_back(&head, node);
+		str++;
 	}
-	ft_process_flags(head, flags);
+	if (head != NULL)
+		ft_process_flags(head, flags);
 	return (ft_print_list(head));
 }
 
-int	ft_print_pointer(t_flags *flags, va_list param_ptr)
+int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
 {
 	t_list	*node;
 	t_list	*cmd;
 	long	p;
 
-	p = (long int)(va_arg(param_ptr, void *));
+	p = (long int)(va_arg(*param_ptr, void *));
 	node = ft_lstnew(" ");
 	cmd = node;
 	ft_putnbr_base(node, p, "0123456789abcdef");

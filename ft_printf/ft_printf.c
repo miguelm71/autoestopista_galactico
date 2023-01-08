@@ -6,15 +6,16 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/17 14:09:03 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/05 13:12:16 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_get_flags(char **str, va_list param_ptr)
+int	ft_get_flags(char **str, va_list *param_ptr)
 {
 	int		error;
+	int		result;
 	t_flags	*flags;
 
 	error = 0;
@@ -28,8 +29,11 @@ int	ft_get_flags(char **str, va_list param_ptr)
 			error = ft_set_type_flag(**str, flags);
 			if (!error)
 			{
+				result = ft_print_param(flags, param_ptr);
+				if (result == -1)
+					return (result);
 				ft_end_flags(flags);
-				return (ft_print_param(flags, param_ptr));
+				return (result);
 			}
 		}
 		else
@@ -40,19 +44,21 @@ int	ft_get_flags(char **str, va_list param_ptr)
 	return (-1);
 }
 
-int	ft_process_param(char **str, va_list param_ptr)
+int	ft_process_param(char **str, va_list *param_ptr)
 {
 	int		i;
 
 	i = 0;
 	if (ft_strncmp(*str, "%", 1) == 0)
+	{
 		ft_putchar_fd('%', 1);
+		return (1);
+	}
 	else
 	{
 		i = ft_get_flags(str, param_ptr);
 		return (i);
 	}
-	return (0);
 }
 
 int	ft_printf(char const *p, ...)
@@ -60,21 +66,29 @@ int	ft_printf(char const *p, ...)
 	va_list	param_ptr;
 	char	*str;
 	int		n;
-
+	int		m;
+	
 	n = 0;
 	str = (char *)p;
 	va_start(param_ptr, p);
+	
 	while (*str && ft_isprint(*str))
 	{
 		if (ft_strncmp(str, "%", 1) == 0)
 		{
 			str++;
-			n = n + ft_process_param(&str, param_ptr);
+			m = ft_process_param(&str, &param_ptr);
+			if (m == -1)
+				return n;
+			n = n + m;
 		}
 		else
+		{	
 			ft_putchar_fd(*str, 1);
+			n++;
+		}
 		str++;
-		n++;
+		//n++;
 	}
 	return (n);
 }

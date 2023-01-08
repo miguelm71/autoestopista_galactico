@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_f.c                                       :+:      :+:    :+:   */
+/*   ft_flags1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 13:23:07 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/05 07:22:02 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,34 @@ int	ft_set_minus_flag(t_flags *flags)
 /**/
 int	ft_set_type_flag(char t, t_flags *flags)
 {
-	if (ft_is_flag(t) && flags->data_type != 0)
+	if (flags->data_type == 0)
 	{
 		flags->data_type = t;
 		return (0);
 	}
 	return (-1);
 }
+
+/**/
+int	ft_is_flag(char c)
+{
+	if (c == '+' || c == '-' || c == ' ' || c == '.' || c == '#'
+		|| ft_isdigit(c))
+		return (1);
+	else
+		return (0);
+}
+
+/**/
+int	ft_is_type(char c)
+{
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
+		|| c == 'u' || c == 'x' || c == 'X')
+		return (1);
+	else
+		return (0);
+}
+
 /* int	ft_set_zero(t_flags *flags)
 {
 	if (flags->zero == -1)

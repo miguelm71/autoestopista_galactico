@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printer4.c                                      :+:      :+:    :+:   */
+/*   ft_flags_fo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/05 13:12:09 by mmateo-m         ###   ########.fr       */
+/*   Created: 2023/01/04 19:30:12 by mmateo-m          #+#    #+#             */
+/*   Updated: 2023/01/04 19:32:13 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printer.h"
+#include "ft_flags.h"
 
-void	ft_process_flags_ (t_list *list, t_flags *flags)
+/**/
+int	ft_parse_flags(char *str, t_flags *flags)
 {
-	t_list	*p;
-
-	p = ft_lstlast(list);
-	p->next = 0;
-	(*flags).data_type = 0;
+    if (str)
+        return (0);
+    else if (flags == 0)
+        return (0);
+    else
+        return (0);
 }

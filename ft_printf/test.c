@@ -6,14 +6,16 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:47:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/03 16:27:55 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:23:16 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+
 int	main(void)
 {
-	ft_printf("Hola pepe");
+	
+	ft_printf(" %s %s ", " - ", "");
 	return (1);
 }
