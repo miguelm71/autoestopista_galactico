@@ -6,14 +6,14 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/04 19:53:08 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:54:23 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_flags.h"
 
 /**/
-int	ft_parse_flags_(char *str, t_flags *flags)
+int	ft_parse_flags(char *str, t_flags *flags)
 {
 	int	n;
 

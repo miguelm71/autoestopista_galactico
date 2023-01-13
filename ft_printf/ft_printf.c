@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/05 13:12:16 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:05:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_get_flags(char **str, va_list *param_ptr)
 		}
 		else
 			error = 1;
-		str++;
+		(*str)++;
 	}
 	ft_end_flags(flags);
 	return (-1);

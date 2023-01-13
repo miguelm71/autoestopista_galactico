@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/13 07:03:40 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:57:02 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,64 +96,8 @@ int	ft_is_flag(char c)
 int	ft_is_type(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
-		|| c == 'u' || c == 'x' || c == 'X')
+		|| c == 'u' || c == 'x' || c == 'X' || c == '%')
 		return (1);
 	else
 		return (0);
 }
-
-/* int	ft_set_zero(t_flags *flags)
-{
-	if (flags->zero == -1)
-	{
-		flags->zero = 1;
-		if (flags->minus != -1)
-			flags->minus = -1;
-		return (0);
-	}
-	return (-1);
-}
-
-int	ft_set_dot(t_flags *flags)
-{
-	if (flags->dot == -1){
-		flags->dot = 1;
-		return (0);
-	}
-	return (-1);
-}
-
-int	ft_set_plus(t_flags *flags)
-{
-	if (flags->plus == -1)
-	{
-		flags->plus = 1;
-		if (flags->space != -1)
-			flags->space = -1;
-		return (0);
-	}
-	return (-1);
-}
-
-int ft_set_space (t_flags *flags)
-{
-	if (flags->space == -1)
-	{
-		flags->space = 1;
-		if (flags->plus != -1)
-			flags->plus = -1;
-		return (0);
-	}
-	return (-1);
-}
-
-int ft_set_pad(t_flags *flags)
-{
-	if (flags->pad == -1)
-	{
-		flags->pad = 1;
-		return (0);
-	}
-	return (-1);
-} 
-*/
