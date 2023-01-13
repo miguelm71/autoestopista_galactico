@@ -43,7 +43,7 @@ int	ft_get_flags(char **str, va_list *param_ptr)
 	ft_end_flags(flags);
 	return (-1);
 }
-
+todo: meter % como un tipo para poder porcesarlo con los flags
 int	ft_process_param(char **str, va_list *param_ptr)
 {
 	int		i;
