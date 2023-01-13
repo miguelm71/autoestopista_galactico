@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/06 20:04:12 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/13 07:04:49 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_print_list(t_list *list)
 {
 	int		n;
 	t_list	*node;
+	char	*mio;
 
 	n = 0;
 	node = list;
@@ -47,7 +48,8 @@ int	ft_print_list(t_list *list)
 	{
 		if (node->content != NULL)
 		{
-			ft_putchar_fd(*((char *)(list->content)), 1);
+			mio = (char *)(node->content);
+			write(1,mio, 1);
 			n++;
 			node = node->next;
 		}
@@ -80,6 +82,8 @@ int	ft_print_string(t_flags *flags, va_list *param_ptr)
 
 	head = NULL;
 	str = va_arg(*param_ptr, char *);
+	if (str == NULL)
+		str = "(null)";
 	while (str != NULL && *str != '\0')
 	{
 		if (head == NULL)
@@ -107,10 +111,10 @@ int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
 	t_list	*cmd;
 	long	p;
 
-	p = (long int)(va_arg(*param_ptr, void *));
-	node = ft_lstnew(" ");
+	p = (long long int)(va_arg(*param_ptr, void *));
+	node = ft_lstnew(ft_cpychar(' '));
 	cmd = node;
-	ft_putnbr_base(node, p, "0123456789abcdef");
+	ft_put_pointer(node, p);
 	node = node->next;
 	ft_lstdelone(cmd, &ft_delchar);
 	cmd = ft_lstnew(ft_cpychar('x'));

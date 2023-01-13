@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:09 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/10 10:18:03 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/13 07:07:08 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,22 @@ void	ft_putnbr_base(t_list *head, long int nbr, char *base)
 	}
 }
 
-/* int main()
+void	ft_put_pointer(t_list *head, unsigned long nbr)
 {
-	char *p = strdup("hola");
-	ft_putnbr_base((long int)p, "0123456789abcdef");
-	printf("\nel puntero es: %p\n", p);
-	return (0);
+	unsigned int				len;
+	unsigned long	mi_nbr;
+	t_list			*node;
+
+	mi_nbr = nbr;
+	len = ft_strlen(g_base);
+	if (mi_nbr < len)
+	{
+		node = ft_lstnew(ft_cpychar(g_base[mi_nbr]));
+		ft_lstadd_back(&head, node);
+	}
+	else
+	{
+		ft_put_pointer(head, mi_nbr / len);
+		ft_put_pointer(head, mi_nbr % len);
+	}
 }
- */

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 19:24:58 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/05 13:11:58 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/13 07:12:14 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_print_decimal(t_flags *flags, va_list *param_ptr)
 	t_list	*node;
 	t_list	*cmd;
 
-	node = ft_lstnew(" ");
+	node = ft_lstnew(ft_cpychar(' '));
 	cmd = node;
 	ft_putnbr_base(node, (long int)(va_arg(*param_ptr, long)), "0123456789");
 	node = node->next;
@@ -31,7 +31,7 @@ int	ft_print_integer(t_flags *flags, va_list *param_ptr)
 	t_list	*node;
 	t_list	*cmd;
 
-	node = ft_lstnew(" ");
+	node = ft_lstnew(ft_cpychar(' '));
 	cmd = node;
 	ft_putnbr_base(node, (long int)(va_arg(*param_ptr, long)), "0123456789");
 	node = node->next;
@@ -47,7 +47,7 @@ int	ft_print_unsigned_decimal(t_flags *flags, va_list *param_ptr)
 	unsigned long	p;
 
 	p = (unsigned long int)(va_arg(*param_ptr, long));
-	node = ft_lstnew(" ");
+	node = ft_lstnew(ft_cpychar(' '));
 	cmd = node;
 	ft_putnbr_base(node, p, "0123456789");
 	node = node->next;
@@ -68,7 +68,7 @@ int	ft_print_hex(t_flags *flags, va_list *param_ptr, int low)
 	else
 		base = ft_strdup("0123456789abcdef");
 	p = (unsigned long int)(va_arg(*param_ptr, long));
-	node = ft_lstnew(" ");
+	node = ft_lstnew(ft_cpychar(' '));
 	cmd = node;
 	ft_putnbr_base(node, p, base);
 	node = node->next;
