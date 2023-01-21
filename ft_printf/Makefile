@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/01/13 18:36:22 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/01/21 17:15:48 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ SRCS = 				ft_printf.c \
 					./src/printer/ft_printer2.c \
 					./src/tools/ft_charmng.c \
 					./src/tools/ft_putnbr_base.c \
-					./src/tools/ft_charmng.c
+					./src/tools/ft_charmng.c \
+					./src/tools/ft_lstget.c
 
 SRCS_BONUS	= 		./src/printer/ft_printer4_bonus.c \
 					./src/flags/ft_flags2_bonus.c \
@@ -109,4 +110,4 @@ fclean:		clean
 re:			fclean all
 
 debug:		
-			gcc -g -Wall ./libft/*.c *.c ./src/flags/*.c ./src/printer/*.c ./src/tools/*.c -o test
+			gcc -g -Wall -Wextra -Werror ./libft/*.c *.c ./src/flags/*.c ./src/printer/*.c ./src/tools/*.c -o test

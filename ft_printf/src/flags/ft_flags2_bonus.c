@@ -6,33 +6,49 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/13 16:54:23 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/21 10:53:12 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_flags.h"
 
-/**/
-int	ft_parse_flags(char *str, t_flags *flags)
+int	ft_get_num(char **str)
 {
-	int	n;
+	int	m;
 
-	n = 0;
-	if (*str == '+')
-		n = ft_set_plus_flag(flags);
-	else if (*str == '-')
-		n = ft_set_minus_flag(flags);
-	else if (*str == ' ')
-		n = ft_set_space_flag(flags);
-	else if (*str == '.')
-		n = ft_set_dot_flag(flags);
-	else if (*str == '#')
-		n = ft_set_pad_flag(flags);
-	else if (*str == '0')
-		n = ft_set_zero_flag(flags);
-	else
-		n = ft_set_flag_number(ft_atoi(str), flags);
-	return (n);
+	m = 0;
+	while (ft_isdigit(**str))
+	{
+		m = (m * 10) + (**str - 48);
+		(*str)++;
+	}
+	if (m > 0)
+		(*str)--;
+	return (m);
 }
 
+int	ft_parse_flags(char **str, t_flags *flags)
+{
+	int	n;
+	int	m;
 
+	n = 0;
+	if (**str == '+')
+		n = ft_set_plus_flag(flags);
+	else if (**str == '-')
+		n = ft_set_minus_flag(flags);
+	else if (**str == ' ')
+		n = ft_set_space_flag(flags);
+	else if (**str == '.')
+		n = ft_set_dot_flag(flags);
+	else if (**str == '#')
+		n = ft_set_pad_flag(flags);
+	else if (**str == '0')
+		n = ft_set_zero_flag(flags);
+	else
+	{
+		m = ft_get_num(str);
+		n = ft_set_flag_number(m, flags);
+	}
+	return (n);
+}

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/13 18:57:02 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/21 15:59:33 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_flags	*ft_init_flags(void)
 	flags->space = -1;
 	flags->width = -1;
 	flags->zero = -1;
+	flags->decimals = 0;
 	return (flags);
 }
 
@@ -49,7 +50,7 @@ int	ft_set_flag_number(int n, t_flags *flags)
 	}
 	else
 	{
-		if (flags->decimals == -1)
+		if (flags->decimals == 0)
 			flags->decimals = n;
 		else
 			return (-1);

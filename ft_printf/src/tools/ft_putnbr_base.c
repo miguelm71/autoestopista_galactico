@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:09 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/13 07:07:08 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/21 13:52:01 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,12 @@ void	ft_putnbr_base(t_list *head, long int nbr, char *base)
 
 void	ft_put_pointer(t_list *head, unsigned long nbr)
 {
-	unsigned int				len;
+	unsigned int	len;
 	unsigned long	mi_nbr;
 	t_list			*node;
+	char			*g_base;
 
+	g_base = "0123456789abcdef";
 	mi_nbr = nbr;
 	len = ft_strlen(g_base);
 	if (mi_nbr < len)

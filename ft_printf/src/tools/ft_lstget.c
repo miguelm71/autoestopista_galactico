@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 12:47:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/21 18:02:04 by mmateo-m         ###   ########.fr       */
+/*   Created: 2023/01/21 13:40:06 by mmateo-m          #+#    #+#             */
+/*   Updated: 2023/01/21 13:56:44 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "ft_printf.h"
+#include "ft_tools.h"
 
-int	main(void)
+t_list	*ft_lstget(t_list *node, int n)
 {
-	printf ("printf:\n");
-	printf (" %.1s %.2s %.3s %.4s ", " - ", "", "4", "");
-	printf ("]");
-	printf ("\nft_printf:\n");
-	ft_printf(" %.1s %.2s %.3s %.4s ", " - ", "", "4", "");
-	printf ("]\n");
-	return (1);
+	int	i;
+
+	i = 0;
+	while (node->next != NULL && i <= n)
+	{
+		node = node->next;
+		i++;
+	}
+	return (node);
 }

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/13 17:05:07 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/21 10:36:23 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_get_flags(char **str, va_list *param_ptr)
 	while ((ft_is_type(**str) || ft_is_flag(**str)) && !error)
 	{
 		if (ft_is_flag(**str))
-			error = ft_parse_flags(*str, flags);
+			error = ft_parse_flags(str, flags);
 		else if (ft_is_type(**str))
 		{
 			error = ft_set_type_flag(**str, flags);
@@ -43,23 +43,6 @@ int	ft_get_flags(char **str, va_list *param_ptr)
 	ft_end_flags(flags);
 	return (-1);
 }
-todo: meter % como un tipo para poder porcesarlo con los flags
-int	ft_process_param(char **str, va_list *param_ptr)
-{
-	int		i;
-
-	i = 0;
-	if (ft_strncmp(*str, "%", 1) == 0)
-	{
-		ft_putchar_fd('%', 1);
-		return (1);
-	}
-	else
-	{
-		i = ft_get_flags(str, param_ptr);
-		return (i);
-	}
-}
 
 int	ft_printf(char const *p, ...)
 {
@@ -71,13 +54,12 @@ int	ft_printf(char const *p, ...)
 	n = 0;
 	str = (char *)p;
 	va_start(param_ptr, p);
-	
 	while (*str && ft_isprint(*str))
 	{
 		if (ft_strncmp(str, "%", 1) == 0)
 		{
 			str++;
-			m = ft_process_param(&str, &param_ptr);
+			m = ft_get_flags(&str, &param_ptr);
 			if (m == -1)
 				return n;
 			n = n + m;
@@ -88,7 +70,6 @@ int	ft_printf(char const *p, ...)
 			n++;
 		}
 		str++;
-		//n++;
 	}
 	return (n);
 }

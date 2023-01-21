@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:28:11 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/12/17 14:11:04 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/21 10:35:54 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_set_type_flag(char t, t_flags *flags);
 int		ft_is_type(char c);
 int		ft_is_flag(char c);
 int		ft_set_data_type_flag(char c, t_flags *flags);
-int		ft_parse_flags(char *str, t_flags *flags);
+int		ft_parse_flags(char **str, t_flags *flags);
 t_flags	*ft_init_flags(void);
 void	ft_end_flags(t_flags *flags);
 
