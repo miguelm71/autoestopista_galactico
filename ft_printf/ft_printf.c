@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/21 10:36:23 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:28:39 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_printf(char const *p, ...)
 		}
 		else
 		{	
-			ft_putchar_fd(*str, 1);
+ 			ft_putchar_fd(*str, 1);
 			n++;
 		}
 		str++;

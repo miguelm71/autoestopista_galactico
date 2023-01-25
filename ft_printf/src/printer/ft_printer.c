@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/13 19:07:46 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:16:39 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,7 @@ int	ft_print_string(t_flags *flags, va_list *param_ptr)
 		ft_lstadd_back(&head, node);
 		str++;
 	}
-	if (head != NULL)
-		ft_process_flags(&head, flags);
+	ft_process_flags(&head, flags);
 	return (ft_print_list(head));
 }
 

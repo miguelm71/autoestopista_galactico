@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/21 17:56:57 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:52:54 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,19 @@
 
 void	ft_process_flags(t_list **list, t_flags *flags)
 {
-	if (flags->data_type == 's' && flags->dot == 1 && flags->decimals > -1)
+	char t;
+
+	t = flags->data_type;
+	if (t == 's' && flags->dot == 1 && flags->decimals > -1)
 		ft_fix_string_length(list, flags->decimals);
+	if ((t == 'd' || t == 'i' || t == 'u' || t == 'x' || t == 'X') \
+			&& flags->space == 1)
+		ft_fix_signus_space(list);
+	if ((t == 'd' || t == 'i' || t == 'u' || t == 'x' || t == 'X') \
+			&& flags->dot == 1 && flags->decimals > -1)
+		ft_fix_decimal_length(list, flags->decimals);
+	if (flags->pad == 1 && (t == 'x' || t == 'X'))
+		ft_set_base_ind(list, t);
 	if (flags->width != -1)
 		ft_fix_width(list, *flags);
 }
@@ -41,6 +52,63 @@ void	ft_fix_string_length(t_list **list, int decimals)
 			h->next = NULL;
 		}
 	}
+}
+
+void	ft_fix_signus_space(t_list **list)
+{
+	t_list	*node;
+	
+	if (ft_isdigit((*(*list)->content)))
+	{
+		node = ft_lstnew(ft_cpychar(' '));
+		ft_lstadd_front(list, node);
+	}
+
+}
+
+void	ft_set_base_ind(t_list **list, char t)
+{
+	t_list	*node;
+
+	if ((*(*list)->content) == '0' && ft_lstsize(*list) == 1)
+		node = NULL;
+	else if (t == 'x')
+	{
+		node = ft_lstnew(ft_cpychar('x'));
+		ft_lstadd_front(list, node);
+		node = ft_lstnew(ft_cpychar('0'));
+		ft_lstadd_front(list, node);
+	}
+	else if (t == 'X')
+	{
+		node = ft_lstnew(ft_cpychar('X'));
+		ft_lstadd_front(list, node);
+		node = ft_lstnew(ft_cpychar('0'));
+		ft_lstadd_front(list, node);
+	}
+}
+
+void	ft_fix_decimal_length(t_list **list, int decimals)
+{
+	int		n;
+	int		minus;
+	t_list	*node;
+
+	minus = 0;
+	if (*((*list)->content) == '-')
+		minus = 1;
+	n = ft_lstsize(*list) - minus;
+	if (minus == 1)
+	{
+		if (n < decimals)
+		{
+			node = (*list)->next;
+			ft_jfy_left(&node, decimals - n, '0');
+			(*list)->next = node;
+		}
+	}
+	else
+		ft_jfy_left(list, decimals - n, '0');
 }
 
 void	ft_jfy_right(t_list **list, int num_chars, char c)
@@ -89,7 +157,7 @@ void	ft_fix_width(t_list **list, t_flags flags)
 			{
 				t = flags.data_type;
 				minos = (char *)((*list)->content);
-				if ((t == 'd' || t == 'i') && *minos == '-')
+				if ((t == 'd' || t == 'i' || t == 'u' || t == 'x' || t == 'X') && *minos == '-')
 				{
 					node = (*list)->next;
 					ft_jfy_left(&node, flags.width - ft_lstsize(*list), '0');
