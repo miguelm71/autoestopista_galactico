@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/01/21 17:15:48 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/01/28 19:27:15 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,13 +94,18 @@ all:		$(NAME)
 libft: 		$(OBJS_LIBFT) $(LIBFT_HEADER)
 				$(AR) -rcs $(NAME) $(OBJS_LIBFT)
 
-$(NAME): 	libft $(OBJS) $(OBJS_NO_BONUS) $(HEADER) $(LIBFT_HEADER)
-				$(AR) -rcs $(NAME) $(OBJS) $(OBJS_NO_BONUS)
+$(NAME): 	libft $(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS) $(HEADER) $(LIBFT_HEADER)
+				$(AR) -rcs $(NAME) $(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS)
+				$(AR) -dv $(NAME) $(OBJS_BONUS)
 
-bonus:		libft $(OBJS) $(HEADER) $(LIBFT_HEADER) $(OBJS_BONUS)
-							ar -rv $(NAME) $(SRCS_NOBONUS)
-							ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+kk:			libft $(OBJS) $(HEADER) $(LIBFT_HEADER) $(OBJS_BONUS)
+				$(AR) -rv $(NAME) $$(OBJS_NO_BONUS)
+				$(AR) -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
 
+bonus:		libft $(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS)
+				$(AR) -rcs $(NAME) $(OBJS) $(OBJS_BONUS) $(OBJS_NO_BONUS)
+				$(AR) -dv $(NAME) $(OBJS_NO_BONUS)
+				
 clean:		
 			$(RM) $(OBJS) $(OBJS_LIBFT) $(OBJS_BONUS) $(OBJS_NO_BONUS)
 

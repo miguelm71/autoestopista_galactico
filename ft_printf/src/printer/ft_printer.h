@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:00:44 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/25 20:49:06 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:51:13 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ void	ft_fix_width(t_list **list, t_flags flags);
 void	ft_fix_string_length(t_list **list, int decimals);
 void	ft_fix_decimal_length(t_list **list, int decimals);
 void	ft_set_base_ind(t_list **list, char t);
-void	ft_fix_signus_space(t_list **list);
-void	ft_fix_signus_plus(t_list **list);
-
+void	ft_fix_signus_space(t_list **list, t_flags *flags);
 #endif

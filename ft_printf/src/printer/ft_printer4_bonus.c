@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/25 20:52:54 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:51:51 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_process_flags(t_list **list, t_flags *flags)
 	if (t == 's' && flags->dot == 1 && flags->decimals > -1)
 		ft_fix_string_length(list, flags->decimals);
 	if ((t == 'd' || t == 'i' || t == 'u' || t == 'x' || t == 'X') \
-			&& flags->space == 1)
-		ft_fix_signus_space(list);
+			&& (flags->space == 1 || flags->plus == 1))
+		ft_fix_signus_space(list, flags);
 	if ((t == 'd' || t == 'i' || t == 'u' || t == 'x' || t == 'X') \
 			&& flags->dot == 1 && flags->decimals > -1)
 		ft_fix_decimal_length(list, flags->decimals);
@@ -33,11 +33,9 @@ void	ft_process_flags(t_list **list, t_flags *flags)
 
 void	ft_fix_string_length(t_list **list, int decimals)
 {
-	int		n;
 	t_list	*node;
 	t_list	*h;
 
-	n = 0;
 	if (decimals < ft_lstsize(*list))
 	{
 		if (decimals == 0)
@@ -54,13 +52,16 @@ void	ft_fix_string_length(t_list **list, int decimals)
 	}
 }
 
-void	ft_fix_signus_space(t_list **list)
+void	ft_fix_signus_space(t_list **list, t_flags *flags)
 {
 	t_list	*node;
 	
 	if (ft_isdigit((*(*list)->content)))
 	{
-		node = ft_lstnew(ft_cpychar(' '));
+		if (flags->plus == 1)
+			node = ft_lstnew(ft_cpychar('+'));
+		else 
+			node = ft_lstnew(ft_cpychar(' '));
 		ft_lstadd_front(list, node);
 	}
 
