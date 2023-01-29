@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/25 19:16:39 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:04:34 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ int	ft_print_list(t_list *list)
 
 int	ft_print_char(t_flags *flags, va_list *param_ptr)
 {
-	char	c;
+	int	c;
 	t_list	*node;
 
 	c = va_arg(*param_ptr, int);
 	node = ft_lstnew(ft_cpychar(c));
 	if (node == NULL)
 		return (-1);
-	ft_process_flags(&node, flags);
+	ft_process_flags(&node, flags, 0);
 	return (ft_print_list(node));
 }
 
@@ -102,7 +102,7 @@ int	ft_print_string(t_flags *flags, va_list *param_ptr)
 		ft_lstadd_back(&head, node);
 		str++;
 	}
-	ft_process_flags(&head, flags);
+	ft_process_flags(&head, flags,0);
 	return (ft_print_list(head));
 }
 
@@ -122,6 +122,17 @@ int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
 	ft_lstadd_front(&node, cmd);
 	cmd = ft_lstnew(ft_cpychar('0'));
 	ft_lstadd_front(&node, cmd);
-	ft_process_flags(&node, flags);
+	ft_process_flags(&node, flags, 0);
 	return (ft_print_list(node));
+}
+
+int	ft_is_special(char *str)
+{
+	char c;
+
+	c = *str;
+	if (c == '\t' || c == '\n' || c == '\v' || \
+		    c == '\f' || c == '\r')
+			return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:21:43 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/21 15:59:20 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/29 09:36:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_cpychar(char c)
 
 	ch = NULL;
 	ch = malloc (1);
-	if (c > 0)
+	//if (c > 0)
 		*ch = c;
 	return (ch);
 }

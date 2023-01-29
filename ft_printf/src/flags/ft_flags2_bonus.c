@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/21 10:53:12 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/29 16:11:23 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	ft_get_num(char **str)
 	while (ft_isdigit(**str))
 	{
 		m = (m * 10) + (**str - 48);
-		(*str)++;
+		if (ft_isdigit(*(*str+1)))
+			(*str)++;
+		else
+			return (m);
 	}
 	if (m > 0)
 		(*str)--;
@@ -43,7 +46,7 @@ int	ft_parse_flags(char **str, t_flags *flags)
 		n = ft_set_dot_flag(flags);
 	else if (**str == '#')
 		n = ft_set_pad_flag(flags);
-	else if (**str == '0')
+	else if (**str == '0' && flags->zero == -1)
 		n = ft_set_zero_flag(flags);
 	else
 	{

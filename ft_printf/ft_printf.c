@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:22:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/25 18:28:39 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:08:21 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_printf(char const *p, ...)
 	n = 0;
 	str = (char *)p;
 	va_start(param_ptr, p);
-	while (*str && ft_isprint(*str))
+	while (*str && (ft_isprint(*str) || ft_is_special(str)))
 	{
 		if (ft_strncmp(str, "%", 1) == 0)
 		{

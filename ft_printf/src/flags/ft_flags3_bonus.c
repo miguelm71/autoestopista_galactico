@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_s.c                                       :+:      :+:    :+:   */
+/*   ft_flags3_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:55:47 by mmateo-m          #+#    #+#             */
-/*   Updated: 2022/11/29 20:02:05 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:31:57 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_set_zero_flag(t_flags *flags)
 	if (flags->zero == -1)
 	{
 		flags->zero = 1;
-		if (flags->minus != -1)
-			flags->minus = -1;
+		/* if (flags->minus != -1)
+			flags->minus = -1; */
 		return (0);
 	}
 	return (-1);

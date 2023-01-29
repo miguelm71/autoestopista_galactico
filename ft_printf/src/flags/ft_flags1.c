@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/21 15:59:33 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:59:05 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_set_minus_flag(t_flags *flags)
 			flags->zero = -1;
 		return (0);
 	}
-	return (-1);
+	return (0);
 }
 
 /**/
