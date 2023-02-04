@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:09 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/29 13:09:59 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:55:15 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_tools.h"
+#include "../../ft_printf.h"
 
 int	ft_get_len(char *str)
 {

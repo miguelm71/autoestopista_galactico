@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 19:24:58 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/29 15:34:18 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:18:57 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printer.h"
+#include "../../ft_printf.h"
 
 int	ft_print_decimal(t_flags *flags, va_list *param_ptr)
 {
@@ -84,7 +84,7 @@ int	ft_print_hex(t_flags *flags, va_list *param_ptr, int low)
 	return (ft_print_list(node));
 }
 
-int ft_print_percentage(t_flags *flags)
+int	ft_print_percentage(t_flags *flags)
 {
 	t_list	*node;
 

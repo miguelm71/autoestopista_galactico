@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags3_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_flags4_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:55:47 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/29 12:31:57 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:48:55 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_flags.h"
+#include "../../ft_printf.h"
 /**/
 //justify adding "0" at the left |0004|
 int	ft_set_zero_flag(t_flags *flags)
@@ -18,8 +18,6 @@ int	ft_set_zero_flag(t_flags *flags)
 	if (flags->zero == -1)
 	{
 		flags->zero = 1;
-		/* if (flags->minus != -1)
-			flags->minus = -1; */
 		return (0);
 	}
 	return (-1);

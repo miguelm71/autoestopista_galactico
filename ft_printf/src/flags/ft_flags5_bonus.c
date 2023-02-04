@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags2_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_flags5_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:53:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/29 16:11:23 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:49:48 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_flags.h"
+#include "../../ft_printf.h"
 
 int	ft_get_num(char **str)
 {
@@ -20,7 +20,7 @@ int	ft_get_num(char **str)
 	while (ft_isdigit(**str))
 	{
 		m = (m * 10) + (**str - 48);
-		if (ft_isdigit(*(*str+1)))
+		if (ft_isdigit(*(*str + 1)))
 			(*str)++;
 		else
 			return (m);

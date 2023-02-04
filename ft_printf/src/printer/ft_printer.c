@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:12:45 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/01/29 14:04:34 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:07:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printer.h"
+#include "../../ft_printf.h"
 
 int	ft_print_param(t_flags *flags, va_list *param_ptr)
 {
@@ -65,7 +65,7 @@ int	ft_print_list(t_list *list)
 
 int	ft_print_char(t_flags *flags, va_list *param_ptr)
 {
-	int	c;
+	int		c;
 	t_list	*node;
 
 	c = va_arg(*param_ptr, int);
@@ -75,6 +75,25 @@ int	ft_print_char(t_flags *flags, va_list *param_ptr)
 	ft_process_flags(&node, flags, 0);
 	return (ft_print_list(node));
 }
+
+/* int	ft_print_string(t_flags *flags, va_list *param_ptr)
+{
+	char	*str;
+	t_list	*head;
+
+	head = NULL;
+	str = va_arg(*param_ptr, char *);
+	if (str == NULL)
+		str = "(null)";
+	while (str != NULL && *str != '\0')
+	{
+		if (ft_add_char_node(head, *str) == 0)
+			return (0);
+		str++;
+	}
+	ft_process_flags(&head, flags, 0);
+	return (ft_print_list(head));
+}  */
 
 int	ft_print_string(t_flags *flags, va_list *param_ptr)
 {
@@ -94,7 +113,7 @@ int	ft_print_string(t_flags *flags, va_list *param_ptr)
 			if (head == NULL)
 				return (0);
 			str++;
-			continue;
+			continue ;
 		}
 		node = ft_lstnew(ft_cpychar(*str));
 		if (node == NULL)
@@ -102,37 +121,34 @@ int	ft_print_string(t_flags *flags, va_list *param_ptr)
 		ft_lstadd_back(&head, node);
 		str++;
 	}
-	ft_process_flags(&head, flags,0);
+	ft_process_flags(&head, flags, 0);
 	return (ft_print_list(head));
 }
 
-int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
+int	ft_add_char_node(t_list **list, char c)
 {
 	t_list	*node;
-	t_list	*cmd;
-	long	p;
 
-	p = (long long int)(va_arg(*param_ptr, void *));
-	node = ft_lstnew(ft_cpychar(' '));
-	cmd = node;
-	ft_put_pointer(node, p);
-	node = node->next;
-	ft_lstdelone(cmd, &ft_delchar);
-	cmd = ft_lstnew(ft_cpychar('x'));
-	ft_lstadd_front(&node, cmd);
-	cmd = ft_lstnew(ft_cpychar('0'));
-	ft_lstadd_front(&node, cmd);
-	ft_process_flags(&node, flags, 0);
-	return (ft_print_list(node));
-}
-
-int	ft_is_special(char *str)
-{
-	char c;
-
-	c = *str;
-	if (c == '\t' || c == '\n' || c == '\v' || \
-		    c == '\f' || c == '\r')
-			return (1);
+	node = ft_lstnew(&c);
+	if (!node)
+		return (-1);
+	if (list == NULL)
+		list = &node;
+	else
+		ft_lstadd_back(list, node);
 	return (0);
 }
+
+/* int	ft_add_char_node(t_list *head, char c)
+{
+	t_list	*node;
+
+	node = ft_lstnew(ft_cpychar(c));
+	if (node == NULL)
+		return (0);
+	if (head == NULL)
+		head = node;
+	else
+		ft_lstadd_back(&head, node);
+	return (1);
+} */

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstget.c                                        :+:      :+:    :+:   */
+/*   ft_flags3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 13:40:06 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/04 15:55:03 by mmateo-m         ###   ########.fr       */
+/*   Created: 2023/01/04 19:30:12 by mmateo-m          #+#    #+#             */
+/*   Updated: 2023/02/04 16:51:40 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-t_list	*ft_lstget(t_list *node, int n)
+int	ft_parse_flags(char **str, t_flags *flags)
 {
-	int	i;
-
-	i = 1;
-	while (node->next != NULL && i <= n)
-	{
-		node = node->next;
-		i++;
-	}
-	return (node);
+	if (*str)
+		return (0);
+	else if (flags == 0)
+		return (0);
+	else
+		return (0);
 }
