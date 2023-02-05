@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/04 15:34:31 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/05 19:49:45 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,18 @@ void	ft_fix_decimal_length(t_list **list, t_flags *flags, int nbr)
 	minus = 0;
 	if (flags->decimals <= 0 && nbr == 0 && ft_num_t(flags->data_type))
 	{
-		ft_lstclear(list, &ft_delchar);
-		return ;
+		if (*((*list)->content) == '-' || *((*list)->content) == ' ' \
+			|| *((*list)->content) == '+')
+		{
+			ft_lstdelone((*(list))->next, &ft_delchar);
+			(*(list))->next = NULL;
+			return ;
+		}
+		else
+		{
+			ft_lstclear(list, &ft_delchar);
+			return ;
+		}
 	}
 	if (*((*list)->content) == '-' || *((*list)->content) == ' ' \
 			|| *((*list)->content) == '+')
