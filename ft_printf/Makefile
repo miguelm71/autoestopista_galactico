@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/02/04 16:59:51 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/02/06 18:25:21 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS = 				ft_printf.c \
 
 SRCS_BONUS	= 		./src/printer/ft_printer5_bonus.c \
 					./src/printer/ft_printer6_bonus.c \
+					./src/printer/ft_printer7_bonus.c \
 					./src/flags/ft_flags5_bonus.c \
 					./src/flags/ft_flags4_bonus.c
 

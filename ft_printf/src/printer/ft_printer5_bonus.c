@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/05 19:49:45 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:18:17 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,43 +88,4 @@ void	ft_set_base_ind(t_list **list, char t)
 		node = ft_lstnew(ft_cpychar('0'));
 		ft_lstadd_front(list, node);
 	}
-}
-
-void	ft_fix_decimal_length(t_list **list, t_flags *flags, int nbr)
-{
-	int		n;
-	int		minus;
-	t_list	*node;
-
-	minus = 0;
-	if (flags->decimals <= 0 && nbr == 0 && ft_num_t(flags->data_type))
-	{
-		if (*((*list)->content) == '-' || *((*list)->content) == ' ' \
-			|| *((*list)->content) == '+')
-		{
-			ft_lstdelone((*(list))->next, &ft_delchar);
-			(*(list))->next = NULL;
-			return ;
-		}
-		else
-		{
-			ft_lstclear(list, &ft_delchar);
-			return ;
-		}
-	}
-	if (*((*list)->content) == '-' || *((*list)->content) == ' ' \
-			|| *((*list)->content) == '+')
-		minus = 1;
-	n = ft_lstsize(*list) - minus;
-	if (minus == 1)
-	{
-		if (n < flags->decimals)
-		{
-			node = (*list)->next;
-			ft_jfy_left(&node, flags->decimals - n, '0');
-			(*list)->next = node;
-		}
-	}
-	else
-		ft_jfy_left(list, flags->decimals - n, '0');
 }
