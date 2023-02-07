@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:47:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/06 23:04:12 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:55:44 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	main(void)
 	int	m;
 
 	printf ("printf:\n");
-	n = printf(" %s ", "-");
+	n = printf("%%");
 	printf ("]");
 	printf ("\nft_printf:\n");
-	m = ft_printf(" %s ", "-");
+	m = ft_printf("%%");
 	printf ("]\n");
 	printf ("p_n=%d     ft_p_m=%d", n, m);
 	return (1);

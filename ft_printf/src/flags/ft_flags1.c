@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:57:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/04 14:42:29 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:46:08 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_get_flags(char **str, va_list *param_ptr)
 
 	result = 0;
 	flags = ft_init_flags();
-	while ((ft_is_type(**str) || ft_is_flag(**str)) && !result)
+	while ((ft_is_type(**str) || ft_is_flag(**str)) && !result && flags != NULL)
 	{
 		if (ft_is_flag(**str))
 			result = ft_parse_flags(str, flags);
@@ -46,6 +46,8 @@ t_flags	*ft_init_flags(void)
 	t_flags	*flags;
 
 	flags = (t_flags *)malloc (sizeof(t_flags));
+	if (flags == NULL)
+		return (NULL);
 	flags->data_type = 0;
 	flags->dot = -1;
 	flags->minus = -1;
@@ -60,7 +62,8 @@ t_flags	*ft_init_flags(void)
 
 void	ft_end_flags(t_flags *flags)
 {
-	free (flags);
+	if (flags != NULL)
+		free (flags);
 }
 
 int	ft_set_flag_number(int n, t_flags *flags)
