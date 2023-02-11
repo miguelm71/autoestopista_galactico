@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:18:17 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/06 18:27:20 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:45:09 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../../ft_printf_bonus.h"
 
 void	ft_fix_decimal_length(t_list **list, t_flags *flags, int nbr)
 {

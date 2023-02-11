@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/04 15:54:32 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:45:05 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../../ft_printf_bonus.h"
 
 void	ft_jfy_right(t_list **list, int num_chars, char c)
 {

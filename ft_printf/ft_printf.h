@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/06 18:27:33 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/11 11:48:53 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,13 @@ typedef struct s_flags
 
 int		ft_set_flag_number(int n, t_flags *flags);
 int		ft_set_minus_flag(t_flags *flags);
-int		ft_set_zero_flag(t_flags *flags);
-int		ft_set_dot_flag(t_flags *flags);
-int		ft_set_plus_flag(t_flags *flags);
-int		ft_set_space_flag(t_flags *flags);
-int		ft_set_pad_flag(t_flags *flags);
+
 int		ft_set_type_flag(char t, t_flags *flags);
 int		ft_is_type(char c);
 int		ft_is_flag(char c);
 int		ft_set_data_type_flag(char c, t_flags *flags);
 int		ft_parse_flags(char **str, t_flags *flags);
+
 int		ft_get_flags(char **str, va_list *param_ptr);
 t_flags	*ft_init_flags(void);
 void	ft_end_flags(t_flags *flags);
@@ -57,19 +54,8 @@ int		ft_print_integer(t_flags *flags, va_list *param_ptr);
 int		ft_print_unsigned_decimal(t_flags *flags, va_list *param_ptr);
 int		ft_print_hex(t_flags *flags, va_list *param_ptr, int low);
 int		ft_print_percentage(t_flags *flags);
-void	ft_process_flags(t_list **list, t_flags *flags, int nbr);
-
-void	ft_jfy_right(t_list **list, int num_chars, char c);
-void	ft_jfy_left(t_list **list, int num_chars, char c);
-void	ft_fix_width(t_list **list, t_flags flags);
-void	ft_fix_width2(char t, t_list **list, t_flags flags, char *minos);
-void	ft_fix_string_length(t_list **list, int decimals);
-void	ft_fix_decimal_length(t_list **list, t_flags *flags, int nbr);
-void	ft_fix_zero_decimal_length(t_list **list);
-void	ft_set_base_ind(t_list **list, char t);
-void	ft_fix_signus_space(t_list **list, t_flags *flags);
 int		ft_is_special(char *str);
-void	ft_fix_percentage_length(t_list **list, t_flags *flags);
+void	ft_process_flags(t_list **list, t_flags *flags, int nbr);
 
 void	ft_putnbr_base(t_list *head, long int nbr, char *base);
 char	*ft_cpychar(char c);

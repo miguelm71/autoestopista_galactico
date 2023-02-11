@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:55:47 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/04 14:48:55 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:44:44 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../../ft_printf_bonus.h"
 /**/
 //justify adding "0" at the left |0004|
 int	ft_set_zero_flag(t_flags *flags)

@@ -6,11 +6,11 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:19:30 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/06 18:18:17 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:44:57 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../../ft_printf_bonus.h"
 
 void	ft_process_flags(t_list **list, t_flags *flags, int nbr)
 {
