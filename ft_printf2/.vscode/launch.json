@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "makefile_debug",
-            "program": "/Users/mmateo-m/Desktop/git_casa/autoestopista_galactico/ft_printf/test",
+            "program": "/Users/mmateo-m/Desktop/git_casa/autoestopista_galactico/ft_printf2/test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

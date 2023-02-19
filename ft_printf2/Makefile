@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/02/11 15:56:27 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/02/19 10:19:11 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,10 @@ SRCS = 				ft_printf.c \
 					ft_flags1.c \
 					ft_flags4.c \
 					ft_printer1.c \
+					ft_printer2.c \
+					ft_printer3.c \
 					ft_printer4.c \
+					ft_utils.c
 					
 
 SRCS_BONUS	= 		ft_flags_bonus1.c \

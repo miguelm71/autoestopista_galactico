@@ -6,13 +6,13 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:52:35 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/11 16:02:52 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 11:01:14 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
 
-t_tp	*init_to_print(void)
+t_tp	*ft_init_to_print(void)
 {
 	t_tp	*tp;
 
@@ -36,22 +36,22 @@ int	ft_print_param(t_flags *flags, va_list *param_ptr)
 	r = -1;
 	if (flags->data_type == 'c')
 		r = ft_print_char(flags, param_ptr);
-	/*else if (flags->data_type == 's')
+	else if (flags->data_type == 's')
 		r = ft_print_string(flags, param_ptr);
 	else if (flags->data_type == 'p')
 		r = ft_print_pointer(flags, param_ptr);
 	else if (flags->data_type == 'd')
 		r = ft_print_decimal(flags, param_ptr);
 	else if (flags->data_type == 'i')
-		r = ft_print_integer(flags, param_ptr);
+		r = ft_print_decimal(flags, param_ptr);
 	else if (flags->data_type == 'u')
-		r = ft_print_unsigned_decimal(flags, param_ptr);
+		r = ft_print_unsigned(flags, param_ptr);
 	else if (flags->data_type == 'x')
 		r = ft_print_hex(flags, param_ptr, 1);
 	else if (flags->data_type == 'X')
 		r = ft_print_hex(flags, param_ptr, 0);
 	else if (flags->data_type == '%')
-		r = ft_print_percentage(flags);*/
+		r = ft_print_percentage(flags);
 	return (r);
 }
 
@@ -60,7 +60,7 @@ int	ft_print_char(t_flags *flags, va_list *param_ptr)
 	int		c;
 	t_tp	*tp;
 
-	tp = init_to_print();
+	tp = ft_init_to_print();
 	if (tp != NULL)
 	{
 		c = va_arg(*param_ptr, int);
@@ -70,9 +70,33 @@ int	ft_print_char(t_flags *flags, va_list *param_ptr)
 	return (0);
 }
 
-int	ft_write_char(t_tp *tp, char c)
+int	ft_print_string(t_flags *flags, va_list *param_ptr)
 {
-	tp->cap_hex = 0;
-	write (1, &c, 1);
-	return (1);
+	char	*str;
+	t_tp	*tp;
+
+	tp = ft_init_to_print();
+	str = va_arg(*param_ptr, char *);
+	if (str == NULL)
+		str = "(null)";
+	ft_process_flags(tp, flags, 0);
+	return (ft_write_string(tp, str));
+}
+
+int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
+{
+	unsigned long	p;
+	char			*str;
+	t_tp			*tp;
+	int				n;
+
+	tp = ft_init_to_print();
+	p = (long long int)(va_arg(*param_ptr, void *));
+	str = ft_p2string(p);
+	if (str == NULL)
+		return (-1);
+	ft_process_flags(tp, flags, 0);
+	n = ft_write_string(tp, str);
+	free (str);
+	return (n);
 }

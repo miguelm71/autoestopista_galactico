@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/11 16:02:13 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 11:01:57 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,27 @@ int		ft_get_flags(char **str, va_list *param_ptr);
 int		ft_parse_flags(char **str, t_flags *flags);
 
 //ft_printer1
+t_tp	*ft_init_to_print(void);
 int		ft_print_param(t_flags *flags, va_list *param_ptr);
 int		ft_print_char(t_flags *flags, va_list *param_ptr);
+int		ft_print_string(t_flags *flags, va_list *param_ptr);
+int		ft_print_pointer(t_flags *flags, va_list *param_ptr);
+
+//ft_printer2
+int		ft_print_decimal(t_flags *flags, va_list *param_ptr);
+int		ft_print_unsigned(t_flags *flags, va_list *param_ptr);
+int		ft_print_hex(t_flags *flags, va_list *param_ptr, int low);
+int		ft_print_percentage(t_flags *flags);
+//ft_printer3
 int		ft_write_char(t_tp *tp, char c);
+int		ft_write_string(t_tp *tp, char *str);
 
 //ft_printer4 & ft_printer_bonus1
 void	ft_process_flags(t_tp *tp, t_flags *flags, int nbr);
+
+//ft_utils
+int		ft_plen(unsigned long int n, unsigned int b_len);
+int		ft_dlen(long long int n, unsigned int b_len);
+char	*ft_p2string(unsigned long p);
+char	*ft_d2string(long p, char *base);
 #endif
