@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:21:46 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/19 11:01:57 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/22 08:23:23 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ typedef struct s_flags
 	int		width;
 	int		decimals;
 	char	data_type;
+	long	number;
 }t_flags;
 
 typedef struct s_tp
 {
 	int		zero_l;
+	int		decimal_z;
 	int		space_l;
-	int		spcae_r;
+	int		space_r;
 	int		sign;
 	int		sign_space;
 	int		cap_hex;
@@ -67,12 +69,13 @@ int		ft_print_decimal(t_flags *flags, va_list *param_ptr);
 int		ft_print_unsigned(t_flags *flags, va_list *param_ptr);
 int		ft_print_hex(t_flags *flags, va_list *param_ptr, int low);
 int		ft_print_percentage(t_flags *flags);
+
 //ft_printer3
 int		ft_write_char(t_tp *tp, char c);
-int		ft_write_string(t_tp *tp, char *str);
 
 //ft_printer4 & ft_printer_bonus1
-void	ft_process_flags(t_tp *tp, t_flags *flags, int nbr);
+void	ft_process_flags(t_tp *tp, t_flags *flags, char **str);
+int		ft_write_string(t_tp *tp, char *str, char t);
 
 //ft_utils
 int		ft_plen(unsigned long int n, unsigned int b_len);

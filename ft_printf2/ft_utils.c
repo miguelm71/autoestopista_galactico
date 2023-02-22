@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 09:05:01 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/19 10:27:39 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/21 09:50:30 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,22 @@ char	*ft_d2string(long p, char *base)
 	}
 	str[i] = base[p];
 	return (str);
+}
+
+char	*ft_getstring(int len, char c)
+{
+	int		i;
+	char	*s;
+
+	i = 0;
+	s = malloc (sizeof(char) * (len + 1));
+	if (s == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		s[i] = c;
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:52:35 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/02/19 11:01:14 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:04:07 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_tp	*ft_init_to_print(void)
 		return (NULL);
 	tp->zero_l = 0;
 	tp->space_l = 0;
-	tp->spcae_r = 0;
+	tp->space_r = 0;
+	tp->decimal_z = 0;
 	tp->sign = 0;
 	tp->sign_space = 0;
 	tp->cap_hex = 0;
@@ -59,13 +60,22 @@ int	ft_print_char(t_flags *flags, va_list *param_ptr)
 {
 	int		c;
 	t_tp	*tp;
+	char	*str;
+	int		n;
 
 	tp = ft_init_to_print();
 	if (tp != NULL)
 	{
+		str = malloc (sizeof(char) * 2);
+		if (str == NULL)
+			return (-1);
+		str [1] = '\0';
 		c = va_arg(*param_ptr, int);
-		ft_process_flags(tp, flags, 1);
-		return (ft_write_char(tp, c));
+		str[0] = c;
+		ft_process_flags(tp, flags, &str);
+		n = ft_write_string(tp, str, flags->data_type);
+		free (str);
+		return (n);
 	}
 	return (0);
 }
@@ -73,14 +83,25 @@ int	ft_print_char(t_flags *flags, va_list *param_ptr)
 int	ft_print_string(t_flags *flags, va_list *param_ptr)
 {
 	char	*str;
+	char	*s;
 	t_tp	*tp;
+	int		n;
 
 	tp = ft_init_to_print();
-	str = va_arg(*param_ptr, char *);
-	if (str == NULL)
-		str = "(null)";
-	ft_process_flags(tp, flags, 0);
-	return (ft_write_string(tp, str));
+	if (tp != NULL)
+	{
+		str = NULL;
+		s = va_arg(*param_ptr, char *);
+		if (s != NULL)
+			str = ft_strdup(s);
+		if (str == NULL)
+			str = ft_strdup("(null)");
+		ft_process_flags(tp, flags, &str);
+		n = ft_write_string(tp, str, flags->data_type);
+		free(str);
+		return (n);
+	}
+	return (0);
 }
 
 int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
@@ -91,12 +112,16 @@ int	ft_print_pointer(t_flags *flags, va_list *param_ptr)
 	int				n;
 
 	tp = ft_init_to_print();
-	p = (long long int)(va_arg(*param_ptr, void *));
-	str = ft_p2string(p);
-	if (str == NULL)
-		return (-1);
-	ft_process_flags(tp, flags, 0);
-	n = ft_write_string(tp, str);
-	free (str);
-	return (n);
+	if (tp != NULL)
+	{
+		p = (long long int)(va_arg(*param_ptr, void *));
+		str = ft_p2string(p);
+		if (str == NULL)
+			return (-1);
+		ft_process_flags(tp, flags, &str);
+		n = ft_write_string(tp, str, flags->data_type);
+		free (str);
+		return (n);
+	}
+	return (0);
 }

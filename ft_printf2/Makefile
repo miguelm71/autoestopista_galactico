@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/02/19 10:19:11 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/02/21 14:30:44 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,18 +24,19 @@ HEADER = 			./ft_printf.h
 SRCS = 				ft_printf.c \
 					ft_flags_utils.c \
 					ft_flags1.c \
-					ft_flags4.c \
 					ft_printer1.c \
 					ft_printer2.c \
-					ft_printer3.c \
-					ft_printer4.c \
 					ft_utils.c
 					
 
-SRCS_BONUS	= 		ft_flags_bonus1.c \
+SRCS_BONUS	= 		ft_flags1_bonus.c \
+					ft_flags2_bonus.c \
+					ft_printer1_bonus.c \
+					ft_printer2_bonus.c
 
 					
-SRCS_NOBONUS =		
+SRCS_NOBONUS =		ft_flags4.c \
+					ft_printer4.c
 
 SRCS_DEBUG	=		./src/test.c
 
