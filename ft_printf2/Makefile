@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 18:58:24 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/02/21 14:30:44 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/03/02 16:19:50 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,6 @@ CFLAGS		=		-Wall -Wextra -Werror
 
 NAME		=		libftprintf.a
 LIBFT		= 		libft
-
-
-HEADER = 			./ft_printf.h
 
 SRCS = 				ft_printf.c \
 					ft_flags_utils.c \
@@ -49,32 +46,30 @@ OBJS_DEBUG	=		$(SRCS_DEBUG:.c=.o)
 
 all:		$(NAME)
 
-$(NAME): 	$(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS) $(HEADER)
+$(NAME): 	$(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS)
 				make -C $(LIBFT)
 				cp $(LIBFT)/libft.a .
 				mv libft.a $(NAME)
 				$(AR) rcs $(NAME) $(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS)
 				$(AR) -dv $(NAME) $(OBJS_BONUS)
 
-kk:			$(OBJS) $(HEADER) $(OBJS_BONUS)
-				$(AR) -rv $(NAME) $$(OBJS_NO_BONUS)
-				$(AR) -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-
 bonus:		$(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS)
-				@make -C $(LIBFT)
-				@cp $(LIBFT)/libft.a .
-				@mv libft.a $(NAME)
-				$(AR) rcs $(NAME) $(OBJS) $(OBJS_BONUS) $(OBJS_NO_BONUS)
-				-@$(AR) -dv $(NAME) $(OBJS_NO_BONUS)
+				make all
+				$(AR) rcs $(NAME) $(OBJS) $(OBJS_NO_BONUS) $(OBJS_BONUS)
+				$(AR) -dv $(NAME) $(OBJS_NO_BONUS)
 				
 clean:		
-			@make clean -C $(LIBFT)
-			@$(RM) $(OBJS) $(OBJS_LIBFT) $(OBJS_BONUS) $(OBJS_NO_BONUS)
+			make clean -C $(LIBFT)
+			$(RM) $(OBJS) $(OBJS_LIBFT) $(OBJS_BONUS) $(OBJS_NO_BONUS)
 
 fclean:		clean
-			@$(RM) $(NAME)
+			$(RM) $(NAME)
 
 re:			fclean all
 
 debug:		
 			gcc -g -Wall -Wextra -Werror ./libft/*.c ./test.c $(SRCS) $(SRCS_BONUS) -o test
+
+debugnobonus:
+			gcc -g -Wall -Wextra -Werror ./libft/*.c ./test.c $(SRCS_NOBONUS) $(SRCS)  -o test
+
