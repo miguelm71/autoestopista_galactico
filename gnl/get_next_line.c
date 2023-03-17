@@ -6,48 +6,53 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:03 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/11 17:05:35 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:11:10 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+int	ft_have_n(char *b)
+{
+	int	n;
 
+	n = -1;
+	if (b == NULL)
+		return (-1);
+	while (b[++n] != '\n')
+	{
+		if (b[n] == '\0' )
+			return (-1) ;
+	}
+	return (n);
+}
 
 char	*get_next_line(int fd)
 {
 	char	*b;
-	char	*h;
-	int		c;
-	int		bl;
+	int		n_pos;
+	int		c_read;
 
-	bl = 0;
 	if (fd <= 0)
 		return (NULL);
-	h = ft_increase_buf(&bl, NULL);
-	if (h == NULL)
-		return (NULL);
-	b = h;
-
-	c = read(fd, b, 1);
-	while (c == 1 && *b != '\n')
+	n_pos = -1;
+	b = 0;
+	while (n_pos < 0)
 	{
-		b++;
-		c = read(fd, b, 1);
-		if ((int)ft_strlen(h) == (1024 * bl))
-		{
-			h = ft_increase_buf(&bl, h);
-			if (h == NULL)
-				return (NULL);
-			b = h + (((bl - 1) * 1024) - 1);
-		}
+		b = ft_increase_buf(b);
+		if (b == NULL)
+			return (NULL);
+		c_read = read(fd, b, BUFFER_SIZE);
+		n_pos = ft_have_n(b);
+		if (c_read < BUFFER_SIZE && n_pos < 0)
+			break ;
 	}
-	if (c <= 0 && ft_strlen(h) == 0){
-		free(h);
-		return (NULL);
+	if (ft_strlen(b) > 0)
+		b = ft_strdup(&b);
+	else
+	{
+		free (b);
+		b = NULL;
 	}
-	if (ft_strlen(h) > 0)
-		b = ft_strdup(h);
-	free(h);
 	return (b);
 }

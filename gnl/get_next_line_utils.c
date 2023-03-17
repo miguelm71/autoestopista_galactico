@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:08 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/11 17:00:33 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:13:29 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,50 +33,46 @@ size_t	ft_strlen(const char *str)
 {
 	int	i;
 
+	if (str == NULL)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char **s)
 {
 	int		len;
 	char	*n;
 	int		i;
 
-	len = ft_strlen(s);
+	len = ft_strlen(*s);
 	n = (char *)malloc (sizeof(char) * (len + 1));
 	if (n == NULL)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		n[i] = s[i];
+		n[i] = (*s)[i];
 		i++;
 	}
 	n[i] = '\0';
+	free (*s);
 	return (n);
 }
 
-char	*ft_increase_buf(int *bl, char *s)
+char	*ft_increase_buf(char *s)
 {
 	int		len;
 	char	*n;
 	int		i;
 
-	(*bl)++;
-	if (*bl == 1)
-	{
-		n = ft_calloc('\0', (sizeof(char) * 1024 * *bl) + 1);
-		return (n);
-	}
-	else
-		n = ft_calloc('\0', (sizeof(char) * 1024 * *bl) + 1);
+	len = ft_strlen(s);
+	n = ft_calloc('\0', (sizeof(char) * (BUFFER_SIZE + len + 1)));
 	if (n == NULL)
 		return (NULL);
 	i = 0;
-	len = ft_strlen(s);
 	while (i < len)
 	{
 		n[i] = s[i];
