@@ -6,11 +6,26 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:08 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/17 21:13:29 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:16:56 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_have_n(char *b)
+{
+	int	n;
+
+	n = -1;
+	if (b == NULL)
+		return (-1);
+	while (b[++n] != '\n')
+	{
+		if (b[n] == '\0' )
+			return (-1);
+	}
+	return (n);
+}
 
 char	*ft_calloc(char c, int size)
 {
@@ -41,44 +56,55 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strdup(char **s)
+char	*ft_strdup_n(char **s, char **h)
 {
 	int		len;
 	char	*n;
 	int		i;
+	int		n_pos;
 
-	len = ft_strlen(*s);
+	n_pos = ft_have_n(*s);
+	len = n_pos + 1;
+	if (n_pos == -1)
+		len = ft_strlen(*s);
 	n = (char *)malloc (sizeof(char) * (len + 1));
 	if (n == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
+	i = -1;
+	while (++i < len)
 		n[i] = (*s)[i];
-		i++;
-	}
 	n[i] = '\0';
-	free (*s);
+	if (n_pos == -1)
+	{
+		*s = NULL;
+		free (*h);
+	}
+	else
+		*s = &((*s)[n_pos + 1]);
 	return (n);
 }
 
-char	*ft_increase_buf(char *s)
+char	*ft_increase_buf(char **s, int blk)
 {
 	int		len;
 	char	*n;
 	int		i;
+	char x;
 
-	len = ft_strlen(s);
+	len = ft_strlen(*s);
 	n = ft_calloc('\0', (sizeof(char) * (BUFFER_SIZE + len + 1)));
 	if (n == NULL)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		n[i] = s[i];
+		x = (*s)[i];
+		n[i] = x;
 		i++;
 	}
-	free (s);
-	n[i] = '\0';
+	free (*s);
+	//n[i] = '\0';
+	*s = n;
+	n = &(n[BUFFER_SIZE * blk]);
 	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 10:19:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/17 21:14:27 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:13:08 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	//char	*buf;
 	char	*r;
 	int		fd;
-	char	*f = "./files/41_no_nl";
+	char	*f = "./files/nl";
 
 	/* file = fopen("./testfile.txt", "w");
 	if (file == NULL)
