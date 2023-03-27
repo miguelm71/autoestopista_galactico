@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:08 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/25 20:16:56 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:34:56 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_calloc(char c, int size)
 	return (str);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -56,55 +56,44 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strdup_n(char **s, char **h)
+void	ft_strsplit_n(char **h, char **p)
 {
-	int		len;
 	char	*n;
-	int		i;
 	int		n_pos;
 
-	n_pos = ft_have_n(*s);
-	len = n_pos + 1;
-	if (n_pos == -1)
-		len = ft_strlen(*s);
-	n = (char *)malloc (sizeof(char) * (len + 1));
-	if (n == NULL)
-		return (NULL);
-	i = -1;
-	while (++i < len)
-		n[i] = (*s)[i];
-	n[i] = '\0';
-	if (n_pos == -1)
+	n_pos = ft_have_n(*h);
+	if (n_pos != -1)
 	{
-		*s = NULL;
+		*p = ft_copy_str(*h, n_pos, -1);
+		n = ft_copy_str(*h, 0, n_pos);
 		free (*h);
+		*h = n;
 	}
 	else
-		*s = &((*s)[n_pos + 1]);
-	return (n);
+	{
+		n = ft_copy_str (*h, 0, -1);
+		free (*h);
+		*h = NULL;
+		*p = n;
+	}
 }
 
-char	*ft_increase_buf(char **s, int blk)
+char	*ft_copy_str(char *str, int i, int e)
 {
-	int		len;
-	char	*n;
-	int		i;
-	char x;
+	int		j;
+	char	*new;
 
-	len = ft_strlen(*s);
-	n = ft_calloc('\0', (sizeof(char) * (BUFFER_SIZE + len + 1)));
-	if (n == NULL)
+	j = 0;
+	if (str == NULL || ft_strlen(str) == 0)
 		return (NULL);
-	i = 0;
-	while (i < len)
+	if (e < i || e > ft_strlen (str))
+		e = ft_strlen(str);
+	new = malloc (sizeof(char) * (e - i) + 1);
+	while (j + i < e)
 	{
-		x = (*s)[i];
-		n[i] = x;
-		i++;
+		new[j] = str[j + i];
+		j++;
 	}
-	free (*s);
-	//n[i] = '\0';
-	*s = n;
-	n = &(n[BUFFER_SIZE * blk]);
-	return (n);
+	new [++j] = '\0';
+	return (new);
 }

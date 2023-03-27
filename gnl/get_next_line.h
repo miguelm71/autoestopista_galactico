@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:54:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/25 20:13:27 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:16:38 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@
 # include <string.h>
 
 //get_next_line
+char	*ft_increase_buf(char **s);
 char	*get_next_line(int fd);
 
 //get_next_line_utils
 int		ft_have_n(char *b);
 char	*ft_calloc(char c, int size);
-size_t	ft_strlen(const char *str);
-char	*ft_strdup_n(char **s, char **h);
-char	*ft_increase_buf(char **s, int blk);
+int		ft_strlen(const char *str);
+void	ft_strsplit_n(char **h, char **p);
+char	*ft_copy_str(char *str, int i, int e);
+
 
 #endif

@@ -6,47 +6,58 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:03 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/25 20:12:46 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:28:34 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+char	*ft_increase_buf(char **s)
+{
+	int		len;
+	char	*n;
+	int		i;
+	char	x;
+
+	len = ft_strlen(*s);
+	n = ft_calloc('\0', (sizeof(char) * (BUFFER_SIZE + len + 1)));
+	if (n == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		x = (*s)[i];
+		n[i] = x;
+		i++;
+	}
+	free (*s);
+	return (n);
+}
+
 char	*get_next_line(int fd)
 {
 	char static	*head;
-	char static	*pos;
+	char		*pos;
 	int			n_pos;
 	int			c_read;
-	int			blk;
 
-	if (fd <= 0)
+	if (read(fd, 0, 0) < 0)
 		return (NULL);
-	n_pos = -1;
-	blk = -1;
-	head = 0;
-	pos = head;
-	if (ft_have_n(pos) == -1)
+	n_pos = ft_have_n(head);
+	if (n_pos == -1)
 	{
 		while (n_pos < 0)
 		{
-			pos = ft_increase_buf(&head, ++blk);
+			head = ft_increase_buf(&head);
 			if (head == NULL)
 				return (NULL);
+			pos = &head[ft_strlen(head)];
 			c_read = read(fd, pos, BUFFER_SIZE);
 			n_pos = ft_have_n(head);
-			if (c_read < BUFFER_SIZE || (-1 < n_pos && n_pos < (BUFFER_SIZE * (blk + 1))))
+			if (c_read < BUFFER_SIZE || (-1 < n_pos))
 				break ;
 		}
 	}
-	if (ft_strlen(head) > 0)
-	{
-		return (ft_strdup_n(&pos, &head));
-	}
-	else
-	{
-		free (head);
-		head = NULL;
-		return (NULL);
-	}
+	ft_strsplit_n(&head, &pos);
+	return (pos);
 }
