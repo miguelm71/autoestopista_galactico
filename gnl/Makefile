@@ -6,7 +6,7 @@
 #    By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 10:36:00 by mmateo-m          #+#    #+#              #
-#    Updated: 2023/03/11 17:15:06 by mmateo-m         ###   ########.fr        #
+#    Updated: 2023/03/28 18:08:31 by mmateo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,5 +36,5 @@ fclean:		clean
 				$(RM) $(NAME)
 
 debug:		
-			gcc -g -Wall -Wextra -Werror ./test.c $(SRCS) -o test
+			gcc -g -Wall -Wextra -Werror -fsanitize=address ./test.c $(SRCS) -o test
 			

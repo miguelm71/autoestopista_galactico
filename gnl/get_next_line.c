@@ -6,11 +6,12 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:03 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/27 18:28:34 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:14:05 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*ft_increase_buf(char **s)
 {
@@ -34,6 +35,13 @@ char	*ft_increase_buf(char **s)
 	return (n);
 }
 
+char	*ft_free(char **p)
+{
+	free (*p);
+	*p = NULL;
+	return (*p);
+}
+
 char	*get_next_line(int fd)
 {
 	char static	*head;
@@ -41,8 +49,8 @@ char	*get_next_line(int fd)
 	int			n_pos;
 	int			c_read;
 
-	if (read(fd, 0, 0) < 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
+		return (ft_free(&head));
 	n_pos = ft_have_n(head);
 	if (n_pos == -1)
 	{

@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:54:52 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/27 18:16:38 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:01:46 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 10
+
 # endif
 
 # include <unistd.h>
@@ -32,6 +33,5 @@ char	*ft_calloc(char c, int size);
 int		ft_strlen(const char *str);
 void	ft_strsplit_n(char **h, char **p);
 char	*ft_copy_str(char *str, int i, int e);
-
 
 #endif

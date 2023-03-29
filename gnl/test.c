@@ -6,7 +6,7 @@
 /*   By: mmateo-m <mmateo-m@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 10:19:21 by mmateo-m          #+#    #+#             */
-/*   Updated: 2023/03/27 18:46:16 by mmateo-m         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:29:19 by mmateo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@
 
 int	main(void)
 {
-	//int		rc;
-	//char	*buf;
 	char	*r;
 	int		fd;
-	char	*f = "./files/nl";
+	char	*f = "./files/read_error.txt";
 
 	/* file = fopen("./testfile.txt", "w");
 	if (file == NULL)
@@ -34,23 +32,46 @@ int	main(void)
 	fprintf(file, "");
 	fclose(file); */
 	fd = open(f, O_RDONLY);
-	if (fd < 0)
-		printf("open() error");
+	r = get_next_line(fd);
+	write (1, r, strlen(r));
+	r = get_next_line(fd);
+	write (1, r, strlen(r));
+	r = get_next_line(fd);
+	write (1, r, strlen(r));
+	r = get_next_line(fd);
+	write (1, r, strlen(r));
+
+	r = get_next_line(fd);
+	
+	//write (1, r, strlen(r));
+	close(fd);
+	fd = open(f, O_RDONLY);
+	r = get_next_line(fd);
+	write (1, r, strlen(r));
+	r = get_next_line(fd);
+	write (1, r, strlen(r));
+	close(fd);
+
+
+	/* fd = open(f, O_RDONLY);
+	r = get_next_line(fd);
+	if (r == NULL)
+		return (NULL);
 	else
-	{
-		r = get_next_line(fd);
-		if (r != NULL)
-			write (1, r, strlen(r));
+		write(1, "null", 4);
 		while (r != NULL)
 		{
 			r = get_next_line(fd);
 			if (r != NULL)
 				write (1, r, strlen(r));
+			else
+				write (1, "null", 4);
 		}
 	}
 	if (close(fd) != 0)
 		printf("close() error");
-	/* if (remove("./testfile.txt") == 0)
+		*/
+	/* if (remove("./testfile.txt") == 0) 
 	{
 		printf("The file is deleted successfully.");
 	}
